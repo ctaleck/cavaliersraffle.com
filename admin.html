@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0041)https://www.piggybackraffle.org/admin.cfm -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" src="./admin_files/cfform.js"></script>
+<script type="text/javascript" src="./admin_files/masks.js"></script>
+
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        
+        
+        <title>QHRA Piggyback Raffle</title>
+
+		
+        <script language="javascript">
+            function displayDate() {
+              var now = new Date();
+              var year = now.getFullYear();
+            
+              document.write(year);
+            }
+        </script>
+        
+        <link href="./admin_files/style.css" rel="stylesheet" type="text/css" media="screen">
+        
+		<script type="text/javascript" src="./admin_files/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="./admin_files/jquery.gallerax-0.2.js"></script>
+    
+		
+        
+        <script type="text/javascript">
+           if (self === top) {
+               var antiClickjack = document.getElementById("antiClickjack");
+               antiClickjack.parentNode.removeChild(antiClickjack);
+           } else {
+               top.location = self.location;
+           }
+        </script>
+    
+    
+<script type="text/javascript">/* <![CDATA[ */
+	if (window.ColdFusion) ColdFusion.required['logon_id']=true;
+/* ]]> */</script>
+
+<script type="text/javascript">/* <![CDATA[ */
+	if (window.ColdFusion) ColdFusion.required['passwd']=true;
+/* ]]> */</script>
+<script type="text/javascript">
+<!--
+    _CF_submit_status["logon"]=null;
+    _CF_checklogon = function(_CF_this)
+    {
+        //return false if form submit button has already been pressed once
+        if( _CF_submit_status[_CF_this.name] == "submitting" ) return false;
+        //reset on submit
+        _CF_submit_status[_CF_this.name] = "submitting";
+        _CF_error_exists = false;
+        _CF_error_messages = new Array();
+        _CF_error_fields = new Object();
+        _CF_FirstErrorField = null;
+
+        //form element logon_id required check
+        if( !_CF_hasValue(_CF_this['logon_id'], "SELECT", false ) )
+        {
+            _CF_onError(_CF_this, "logon_id", _CF_this['logon_id'].value, "Logon_id is Required");
+            _CF_error_exists = true;
+        }
+
+        //form element passwd required check
+        if( !_CF_hasValue(_CF_this['passwd'], "PASSWORD", false ) )
+        {
+            _CF_onError(_CF_this, "passwd", _CF_this['passwd'].value, "Password is Required");
+            _CF_error_exists = true;
+        }
+
+
+        //display error messages and return success
+        if( _CF_error_exists )
+        {
+            if( _CF_error_messages.length > 0 )
+            {
+                // show alert() message
+                _CF_onErrorAlert(_CF_error_messages);
+                // set focus to first form error, if the field supports js focus().
+                if( _CF_this[_CF_FirstErrorField].type == "text" )
+                { _CF_this[_CF_FirstErrorField].focus(); }
+
+                _CF_submit_status[_CF_this.name] = null;
+            }
+            return false;
+        }else {
+            return true;
+        }
+    }
+//-->
+</script>
+</head>
+	<body onload="document.logon.passwd.focus();" data-gr-c-s-loaded="true">
+    
+	<div id="header-wrapper">
+		<div id="header">
+			<div id="logo">
+				<h1 style="color:Yellow">PiggybackRaffle.org</h1>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;Queen of the Holy Rosary Academy - Piggyback Raffle</p>
+			</div>
+		</div>
+	</div>
+    
+
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+						<h2 class="title">Piggyback Registration</h2>
+						<p class="meta">Please fill out the form below completely! ALL fields are Required!</p>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+                            <form name="logon" id="logon" action="https://www.piggybackraffle.org/admin.cfm" method="post" onsubmit="return _CF_checklogon(this)">
+                                <table align="center" border="0" cellpadding="1" cellspacing="0">
+                                    <tbody><tr align="center">
+                                        <th>Destination</th>
+                                        <th>Password</th>
+                                    </tr>
+                                    <tr align="center">
+                                        <td>
+                                            <select name="logon_id" id="logon_id" size="1">
+    <option value="Piggyback">Piggyback</option>
+ </select>			      
+                                        </td>
+                                        <td>
+                                            <input name="passwd" id="passwd" type="password" maxlength="20" size="20"> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    	<td colspan="2">&nbsp;</td>                                       
+                                    </tr>
+                                    <tr align="center">
+                                        <td colspan="2">
+											
+                                                
+                                                <input type="hidden" name="formValidator" value="58165">
+                                            <input name="submit" id="submit" type="submit" value="Submit">&nbsp;&nbsp;
+                                            <input name="reset" id="reset" type="reset" value="Reset">										
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+                            </form>
+
+
+						</div>
+					</div>
+					<div style="clear: both;">&nbsp;</div>
+				</div>
+				<!-- end #content -->
+
+                <div id="sidebar">
+    <ul>
+        <li>
+            <div style="clear: both;">&nbsp;</div>
+        </li>
+        <li>
+            <h2>Welcome!</h2>
+            <p>Thank you for your support of our school and our students!  Your generosity and kindness are greatly appreciated!</p>
+        </li>
+        <li>
+            <h2>Main Menu</h2>
+            <ul>
+                <li><a href="https://www.piggybackraffle.org/index.cfm">Home</a></li>
+                <li><a href="https://www.piggybackraffle.org/registration.cfm" style="color:red">Enroll Here</a></li>
+                <li><a href="https://www.qhra.org/" target="_blank">QHRA Homepage</a></li>
+                <li><a href="http://www.smastl.org/" target="_blank">SMA Homepage</a></li>
+                <li><a href="https://www.piggybackraffle.org/admin.cfm">Administration</a></li>
+            </ul>
+        </li>
+        <li>
+            </li><li><img src="./admin_files/piggyback.gif" width="320" height="336"></li>
+        
+    </ul>
+</div>
+<!-- end #sidebar -->
+<div style="clear: both;">&nbsp;</div>
+
+			</div>
+		</div>
+	</div>
+
+<div id="footer">
+	<p><script>displayDate();</script>2020 (PiggybackRaffle.org). Design by <a href="http://www.stldesigns.com/" target="_blank">StLDesigns.com</a>.</p>
+</div>
+
+
+</body></html>
