@@ -1,0 +1,66 @@
+/* for navbar-fixed-top */
+body { padding-top: 56px; }
+
+.parallax { 
+    /* The image used */
+    background-image: url("cavaliers-raffle.jpg");
+
+    /* Set a specific height 
+    height: 500px; 
+*/
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: top 57px center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+.center-cropped {
+    object-fit: none;
+    object-position: center;
+    height: 425px;
+    width: 100%;
+}
+.bg-blue {
+    background-color: #35355A;
+}
+.text-blue {
+    color: #35355A;
+}
+.bg-dark-blue {
+    background-color: #000037;
+}
+.bg-light-blue {
+    background-color: #828AA3
+}
+.text-light-blue {
+    color: #828AA3;
+}
+.bg-red {
+    background-color: #b81413;
+}
+.bg-yellow {
+    background-color: #FCEE6C;
+}
+a {
+    color: #b81413;
+    text-decoration: none;
+}
+a:hover {
+    color: #b81413;
+    text-decoration: underline;
+}
+.center-cropped-md {
+    object-fit: fill;
+    height: 100%;
+}
+h1, h2, h3, h4 {
+    font-family: 'Contrail One', cursive;
+}
+footer a {
+    color: #ffffff;
+    text-decoration: none;
+}
+footer a:hover {
+    color: #d9eafa;
+    text-decoration: underline;
+}
