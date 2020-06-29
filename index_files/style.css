@@ -8,17 +8,17 @@ Released for free under a Creative Commons Attribution 2.5 License
 body {
 	margin: 0;
 	padding: 0;
-	background: #FBF1D6;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size: 12px;
-	color: #787878;
+	background: #094A8C;
+	font-family: 'Contrail One';
+	font-size: 1.85em;
+	color: #ffffff;
 }
 
 h1, h2, h3 {
 	margin: 0;
 	padding: 0;
 	font-weight: normal;
-	color: #32639A;
+	color: #b81413;
 }
 
 h1 {
@@ -38,20 +38,8 @@ p, ul, ol {
 	line-height: 180%;
 }
 
-ul, ol {
-}
-
-a {
-	text-decoration: none;
-	color: #787878;
-}
-
-a:hover {
-	color: #FFC019;
-}
-
 #wrapper {
-	width: 960px;
+	width: 1170px;
 	margin: 0 auto;
 	padding: 0;
 }
@@ -76,7 +64,6 @@ a:hover {
 	float: left;
 	margin: 0;
 	padding-top: 20px;
-	color: #000000;
 }
 
 #logo h1, #logo p {
@@ -87,7 +74,6 @@ a:hover {
 #logo h1 {
 	float: left;
 	letter-spacing: -1px;
-	text-transform: lowercase;
 	font-size: 3.8em;
 }
 
@@ -95,16 +81,12 @@ a:hover {
 	float: left;
 	margin: 0;
 	padding: 26px 0 0 10px;
-	font: normal 14px Georgia, "Times New Roman", Times, serif;
-	font-style: italic;
-	color: #FCF2D9;
 } 
 
 #logo a {
 	border: none;
 	background: none;
 	text-decoration: none;
-	color: #FCF2D9;
 }
 
 /* Search */
@@ -147,7 +129,6 @@ a:hover {
 	background: #FFE93B;
 	font-weight: bold;
 	font-size: 10px;
-	color: #F7811D;
 }
 
 /* Menu */
@@ -196,7 +177,7 @@ a:hover {
 /* Page */
 
 #page {
-	width: 940px;
+	width: 1170px;
 	margin: 0 auto;
 	padding: 0;
 }
@@ -205,14 +186,11 @@ a:hover {
 	padding: 20px px;
 }
 
-#page-bgbtm {
-}
-
 /* Content */
 
 #content {
 	float: right;
-	width: 620px;
+	width: 820px;
 	padding: 30px 0px 0px 0px;
 }
 
@@ -288,9 +266,8 @@ a:hover {
 
 #sidebar {
 	float: left;
-	width: 280px;
+	width: 350px;
 	padding-top: 0px;
-	color: #787878;
 }
 
 #sidebar ul {
@@ -310,8 +287,6 @@ a:hover {
 }
 
 #sidebar li li {
-	line-height: 35px;
-	border-bottom: 1px dashed #D1D1D1;
 	margin: 0px 30px;
 	border-left: none;
 }
@@ -329,7 +304,6 @@ a:hover {
 	padding-left: 30px;
 	letter-spacing: -.5px;
 	font-size: 1.8em;
-	color: #A72A00;
 }
 
 #sidebar p {
@@ -344,13 +318,9 @@ a:hover {
 
 #sidebar a:hover {
 	text-decoration: underline;
-	color: #FFC019;
 }
 
 /* Calendar */
-
-#calendar {
-}
 
 #calendar_wrap {
 	padding: 20px;
@@ -376,21 +346,14 @@ a:hover {
 	padding: 0px 0 15px 0;
 	background: #007EA8;
 	border-top: 5px solid #A72A00;
-	font-family: Arial, Helvetica, sans-serif;
 }
 
 #footer p {
 	margin: 0;
 	padding-top: 20px;
 	line-height: normal;
-	font-size: 10px;
 	text-transform: uppercase;
 	text-align: center;
-	color: #FF9535;
-}
-
-#footer a {
-	color: #FF9535;
 }
 
 #gallery-background {
@@ -471,4 +434,44 @@ a:hover {
 #gallery ul.thumbnails li img.active
 {
 	border: solid 6px #BDAF8C;
+}
+
+/* OLOSA */
+
+.parallax { 
+	background-image: url("2019-Jog-a-thon-students-med.jpg");
+	background-attachment: fixed;
+	background-position: top 57px center;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+}
+.center-cropped {
+	object-fit: none;
+	object-position: center;
+	height: 425px;
+	width: 100%;
+}
+.bg-blue {
+	background-color: #094A8C;
+}
+.bg-dark-blue {
+	background-color: #06325F;
+}
+.bg-red {
+	background-color: #b81413;
+}
+.bg-yellow {
+	background-color: #FCEE6C;
+}
+a {
+	color: #b81413;
+	text-decoration: none;
+}
+a:hover {
+	color: #b81413;
+	text-decoration: underline;
+}
+.center-cropped-md {
+	object-fit: fill;
+	height: 100%;
 }

@@ -1,23 +1,26 @@
-/* for navbar-fixed-top */
-body { padding-top: 56px; }
-
+html {
+    scroll-behavior: smooth;
+}
+/* For fixed-top */
+body { 
+    padding-top: 56px; 
+}
 .parallax { 
-    /* The image used */
-    background-image: url("cavaliers-raffle.jpg");
-
-    /* Set a specific height 
-    height: 500px; 
-*/
-    /* Create the parallax scrolling effect */
+    background-image: url("images/cavaliers-raffle.jpg");
     background-attachment: fixed;
     background-position: top 57px center;
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
+.tickets-hero {
+    background-image: url("images/tickets-hero.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top: 5px solid #EA6700 !important;
+}
 .center-cropped {
-    object-fit: none;
     object-position: center;
-    height: 425px;
     width: 100%;
 }
 .bg-blue {
@@ -29,6 +32,9 @@ body { padding-top: 56px; }
 .bg-dark-blue {
     background-color: #000037;
 }
+.text-dark-blue {
+    color: #000037;
+}
 .bg-light-blue {
     background-color: #828AA3
 }
@@ -39,7 +45,10 @@ body { padding-top: 56px; }
     background-color: #b81413;
 }
 .bg-yellow {
-    background-color: #FCEE6C;
+    background-color: #EA6700;
+}
+.text-yellow {
+    color: #EA6700;
 }
 a {
     color: #b81413;
@@ -64,3 +73,7 @@ footer a:hover {
     color: #d9eafa;
     text-decoration: underline;
 }
+.text-shadow { 
+    text-shadow: 1px 1px 1px #000000ee,
+                 3px 3px 5px #00000055; 
+  }
