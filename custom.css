@@ -36,10 +36,10 @@ body {
     color: #000037;
 }
 .bg-light-blue {
-    background-color: #828AA3
+    background-color: #838AA4
 }
 .text-light-blue {
-    color: #828AA3;
+    color: #838AA4;
 }
 .bg-red {
     background-color: #b81413;
@@ -63,7 +63,7 @@ a:hover {
     height: 100%;
 }
 h1, h2, h3, h4 {
-    font-family: 'Contrail One', cursive;
+    font-family: 'Contrail One', Arial, Helvetica, sans-serif;
 }
 footer a {
     color: #ffffff;
