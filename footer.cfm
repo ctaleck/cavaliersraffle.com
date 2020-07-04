@@ -1,4 +1,4 @@
-    <footer>
+    <footer class="bg-blue py-5">
         <div class="container">
             <p class="text-white float-right">
                 <a href="#">Back to top</a>

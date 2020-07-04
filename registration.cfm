@@ -2,7 +2,7 @@
 <cfinclude template="header.cfm">
 
     <cfform name="quote_request" action="registration_proc.cfm" method="post">
-        <section id="entry" class="jumbotron bg-light-blue ww ounded-0 text-center mb-0">
+        <section id="entry" class="jumbotron bg-light-blue rounded-0 text-center mb-0">
             <div class="container">
                     <h1 class="jumbotron-heading">Raffle Entry</h1>
                     <p><b class="text-danger">*</b> are required fields.</p>

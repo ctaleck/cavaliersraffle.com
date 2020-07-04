@@ -43,7 +43,7 @@
     </script>
 </head>
 
-<body class="bg-blue">
+<body class="bg-light-blue">
 
 <div id="app">
     <header>
@@ -54,27 +54,7 @@
                         <p class="text-white">Thank you for your donation to</p>
                         <h4 class="text-white">Our Lady of Sorrows Academy</h4>
                         <p class="text-white">
-                            Our Lady of Sorrows Academy is holding its Tenth Annual Jog-A-Thon on November 27, 2019,
-                            our major fundraiser for this Academic Year. Our goal is to raise $60,000 and we are
-                            relying on your generous support and prayers to succeed!
-                        </p>
-                        <p class="text-white">
-                            All proceeds from this year’s Jog-A-Thon will benefit the Academy.
-                        </p>
-                        <p class="text-white">
-                            In the weeks preceding the day of the Jog-A-Thon, students obtain sponsors to make a per
-                            lap pledge or a one-time donation. On the day of the event, participants will have one hour
-                            to run, jog, or walk as many times as they can around a one-eighth mile track.
-                        </p>
-                        <p class="text-white">
-                            Prizes will be awarded for students who run the most number of laps, as well as for
-                            students who collect the most amount of money. Additional incentive prizes are awarded
-                            throughout the campaign.
-                        </p>
-                        <p class="text-white">
-                            Please sponsor our students, teachers, and religious! Select the name(s) of who you are
-                            graciously sponsoring, then enter the amount of your donation, your contact information and
-                            payment information.
+                            All proceeds from this raffle will benefit the Academy.
                         </p>
                         <p class="text-white">
                             Thank you for supporting our school!
@@ -88,11 +68,14 @@
                         </p>
                         <p class="text-white small">
                             If you have problems using this Website, please contact the 
-                            <a href="mailto:admin@olosa.org">Jog-a-thon Webmaster</a>
+                            <a href="mailto:admin@olosa.org">Webmaster</a>
                         </p>
                     </div>
                     <div class="col-sm-4 offset-md-1 py-4">
                         <h4 class="text-white">Contact</h4>
+                        <p>750 E. Baseline Road<br/>
+                        Phoenix, AZ 85042<br/>
+                        602-305-7183</p>
                         <ul class="list-unstyled">
                             <li><a href="mailto:office@olosa.org" class="text-white">E-mail: office@olosa.org</a></li>
                         </ul>
