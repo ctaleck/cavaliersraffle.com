@@ -36,7 +36,7 @@
 </cfif>
 
     <div class="container-fluid py-5">
-        <h1>CavaliersRaffle.com Registration Details</h1>
+        <h1>Registration Details</h1>
         <h2>Donors Currently Eligible for Drawing</h2>
 
         <cfset variables.today = DateFormat(now(),"yyyy/mm/dd")>
@@ -93,89 +93,89 @@
                 order by 1
         </cfquery>
 
-<cfif IsDefined("url.gen")>
-<cfset variables.raffle_list = "">
+        <cfif IsDefined("url.gen")>
+        <cfset variables.raffle_list = "">
 
-<cfset myImgPath = expandPath('/') & "images/">
+        <cfset myImgPath = expandPath('/') & "images/">
 
-<cfloop query="selUsedNumbers">
-	<cfset variables.raffle_list = ListAppend(variables.raffle_list,selUsedNumbers.raffle_nbr,",")>
-</cfloop>
+        <cfloop query="selUsedNumbers">
+            <cfset variables.raffle_list = ListAppend(variables.raffle_list,selUsedNumbers.raffle_nbr,",")>
+        </cfloop>
 
-<cfset variables.raffle_list = ReReplace(variables.raffle_list,",",", ","ALL")>
+        <cfset variables.raffle_list = ReReplace(variables.raffle_list,",",", ","ALL")>
 
-<cfmail
-    to = "#selCurrentDonors.pb_email#"
-    bcc = "admin@olosa.org"
-    from = "admin@olosa.org"
-    failto = "admin@olosa.org"
-    subject = "Your CavaliersRaffle.com Numbers"
-    username = "PiggybackFacilitator@piggybackraffle.org"
-    type="html"
-    server = "localhost">
-    
-    <h2 style="text-align:center; font-family:'Tahoma, Geneva, sans-serif; font-size:24px">#selCurrentDonors.pb_first_name# #selCurrentDonors.pb_last_name#</h2>
-    
-    <h3 style="text-align:center; font-family:Tahoma, Geneva, sans-serif; font-size:16px">
-        Thank you for your support of CavaliersRaffle.com of Our Lady of Sorrows Academy!
-    </h3>
-    
-    <h3 style="text-align:center; font-family:Tahoma, Geneva, sans-serif; font-size:16px">
-        <cfif ListLen(variables.raffle_list,",") is 1>
-            Your Raffle Number is:&nbsp;
-        <cfelse>
-            Your Raffle Numbers are:&nbsp;
+        <cfmail
+            to = "#selCurrentDonors.pb_email#"
+            bcc = "admin@olosa.org"
+            from = "admin@olosa.org"
+            failto = "admin@olosa.org"
+            subject = "Your CavaliersRaffle.com Numbers"
+            username = "PiggybackFacilitator@piggybackraffle.org"
+            type="html"
+            server = "localhost">
+            
+            <h2 style="text-align:center; font-family:'Tahoma, Geneva, sans-serif; font-size:24px">#selCurrentDonors.pb_first_name# #selCurrentDonors.pb_last_name#</h2>
+            
+            <h3 style="text-align:center; font-family:Tahoma, Geneva, sans-serif; font-size:16px">
+                Thank you for your support of CavaliersRaffle.com of Our Lady of Sorrows Academy!
+            </h3>
+            
+            <h3 style="text-align:center; font-family:Tahoma, Geneva, sans-serif; font-size:16px">
+                <cfif ListLen(variables.raffle_list,",") is 1>
+                    Your Raffle Number is:&nbsp;
+                <cfelse>
+                    Your Raffle Numbers are:&nbsp;
+                </cfif>
+                #variables.raffle_list#
+            </h3>
+            
+            <h3 style="text-align:center; font-family:Tahoma, Geneva, sans-serif; font-size:16px">
+                Your Eligibility Raffle Drawing dates are:&nbsp;&nbsp;
+                Starting - #selCurrentDonors.start_date#&nbsp;&nbsp; / &nbsp;&nbsp;
+                Ending - #selCurrentDonors.end_date#
+            </h3>
+            
+            <h2 style="text-align:center; font-family:'Tahoma, Geneva, sans-serif; font-size:24px">
+                <span style="color:red">
+                    The raffle is run on the first Friday of every month and you WILL receive email identifying the winners!<br /><br />
+                    If you do NOT get an email on the first Friday (by end of the day), check your junk or spam folder<br />  
+                    for the email and mark it as "Not Spam" so that you'll receive them in the future.
+                </span>
+            </h2>
+            
+            <br />
+            
+            <hr />
+                
+            <div align="center">
+                <table border="0" cellspacing="20">
+                    <tr>
+                        <td width="50%">
+                            <span style="text-align:center; font-family:Tahoma, Geneva, sans-serif; font-size:16px; font-weight:bold;">Our Mailing Address<br /></span>
+                            <span style="text-align:center; font-family:Tahoma, Geneva, sans-serif; font-size:16px;">
+                                750 E. Baseline Road<br/>
+                                Phoenix, AZ 85042<br/>
+                                602-305-7183
+                            </span>
+                        </td>           
+                        <td align="right">
+                            <a href="https://ourladyofsorrows-academy.com">Our Lady of Sorrows Academy</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">**** Please Note: This mailbox is unattended. Do not reply to this email ****</td>
+                    </tr>
+                </table>
+            </div>
+        </cfmail>
+
+        <cfoutput>
+            <script language="JavaScript1.2">
+                alert("The ''Thank you'' and information email was sent to #selCurrentDonors.pb_first_name# #selCurrentDonors.pb_last_name# at #selCurrentDonors.pb_email#.\n\nBlind copies were sent to admin@olosa.org")
+            </script>
+        </cfoutput>
+
         </cfif>
-        #variables.raffle_list#
-    </h3>
-    
-    <h3 style="text-align:center; font-family:Tahoma, Geneva, sans-serif; font-size:16px">
-        Your Eligibility Raffle Drawing dates are:&nbsp;&nbsp;
-        Starting - #selCurrentDonors.start_date#&nbsp;&nbsp; / &nbsp;&nbsp;
-        Ending - #selCurrentDonors.end_date#
-    </h3>
-    
-    <h2 style="text-align:center; font-family:'Tahoma, Geneva, sans-serif; font-size:24px">
-    	<span style="color:red">
-            The raffle is run on the first Friday of every month and you WILL receive email identifying the winners!<br /><br />
-            If you do NOT get an email on the first Friday (by end of the day), check your junk or spam folder<br />  
-            for the email and mark it as "Not Spam" so that you'll receive them in the future.
-        </span>
-    </h2>
-	
-    <br />
-    
-    <hr />
-        
-    <div align="center">
-        <table border="0" cellspacing="20">
-            <tr>
-                <td width="50%">
-                    <span style="text-align:center; font-family:Tahoma, Geneva, sans-serif; font-size:16px; font-weight:bold;">Our Mailing Address<br /></span>
-                    <span style="text-align:center; font-family:Tahoma, Geneva, sans-serif; font-size:16px;">
-                        750 E. Baseline Road<br/>
-                        Phoenix, AZ 85042<br/>
-                        602-305-7183
-                    </span>
-                </td>           
-                <td align="right">
-                    <a href="https://ourladyofsorrows-academy.com">Our Lady of Sorrows Academy</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">**** Please Note: This mailbox is unattended. Do not reply to this email ****</td>
-            </tr>
-        </table>
-    </div>
-</cfmail>
-
-<cfoutput>
-	<script language="JavaScript1.2">
-        alert("The ''Thank you'' and information email was sent to #selCurrentDonors.pb_first_name# #selCurrentDonors.pb_last_name# at #selCurrentDonors.pb_email#.\n\nBlind copies were sent to admin@olosa.org")
-    </script>
-</cfoutput>
-
-</cfif>
                             
         <cfform name="reg_details" action="pb_report_details.cfm" method="post">
             <div class="card card-body">
@@ -255,56 +255,54 @@
         </cfform>
     </div>
         
-        <div class="container-fluid py-5">
-            <cfif selUsedNumbers.RecordCount GT 0>
-                <div class="container-fluid py-5">
-                    <h2>Current Raffle Numbers</h2>
-                    <div class="card card-body">
-                        <table class="table table-sm table-bordered">
-                            <cfoutput>
-                                <cfif selUsedNumbers.RecordCount LTE 10>
-                                    <tr>
-                                        <cfloop query="selUsedNumbers" startrow="1" endrow="10">
-                                            <td>
-                                                #selUsedNumbers.raffle_nbr#&nbsp;
-                                            </td>
-                                        </cfloop>
-                                    </tr>
-                                <cfelse>
-                                    <tr>
-                                        <cfloop query="selUsedNumbers" startrow="1" endrow="10">
-                                            <td>
-                                                #selUsedNumbers.raffle_nbr#&nbsp;
-                                            </td>
-                                        </cfloop>
-                                    </tr>
-                                    <tr>
-                                        <cfloop query="selUsedNumbers" startrow="11" endrow="20">
-                                            <td>
-                                                #selUsedNumbers.raffle_nbr#&nbsp;
-                                            </td>
-                                        </cfloop>
-                                    </tr>
-                                </cfif>
-                            </cfoutput>
-                        </table>
-                    </div>
-                </div>
-                <div class="container-fluid py-5">
-                    <cfoutput>
-                        <a class="btn btn-success" href="pb_update_details.cfm?ID=#URLEncodedFormat(variables.id)#&pb_donation_id=#URLEncodedFormat(variables.pb_donation_id)#&pb_start_date=#URLEncodedFormat(variables.pb_start_date)#"><span>Update Contact Information</span></a>
-                    </cfoutput>
-                </div>
-            <cfelse>
-                <cfif selCurrentDonors.pb_payment_verified is "Y">
-                    <cfoutput>
-                        <a class="btn btn-primary" href="gen_raffle_nbrs.cfm?ID=#URLEncodedFormat(variables.id)#">Generate Raffle Numbers</a>
-                    </cfoutput>
-                <cfelse>
-                    <div class="alert alert-danger">Once Payment has been verified, you may generate Raffle Numbers</div>
-                </cfif>
-            </cfif>
+    <cfif selUsedNumbers.RecordCount GT 0>
+        <div class="container-fluid">
+            <cfoutput>
+                <a class="btn btn-success" href="pb_update_details.cfm?ID=#URLEncodedFormat(variables.id)#&pb_donation_id=#URLEncodedFormat(variables.pb_donation_id)#&pb_start_date=#URLEncodedFormat(variables.pb_start_date)#"><span>Update Contact Information</span></a>
+            </cfoutput>
         </div>
+        <div class="container-fluid py-5">
+            <h2>Current Raffle Numbers</h2>
+            <div class="card card-body">
+                <table class="table table-sm table-bordered">
+                    <cfoutput>
+                        <cfif selUsedNumbers.RecordCount LTE 10>
+                            <tr>
+                                <cfloop query="selUsedNumbers" startrow="1" endrow="10">
+                                    <td>
+                                        #selUsedNumbers.raffle_nbr#&nbsp;
+                                    </td>
+                                </cfloop>
+                            </tr>
+                        <cfelse>
+                            <tr>
+                                <cfloop query="selUsedNumbers" startrow="1" endrow="10">
+                                    <td>
+                                        #selUsedNumbers.raffle_nbr#&nbsp;
+                                    </td>
+                                </cfloop>
+                            </tr>
+                            <tr>
+                                <cfloop query="selUsedNumbers" startrow="11" endrow="20">
+                                    <td>
+                                        #selUsedNumbers.raffle_nbr#&nbsp;
+                                    </td>
+                                </cfloop>
+                            </tr>
+                        </cfif>
+                    </cfoutput>
+                </table>
+            </div>
+        </div>
+    <cfelse>
+        <cfif selCurrentDonors.pb_payment_verified is "Y">
+            <cfoutput>
+                <a class="btn btn-primary" href="gen_raffle_nbrs.cfm?ID=#URLEncodedFormat(variables.id)#">Generate Raffle Numbers</a>
+            </cfoutput>
+        <cfelse>
+            <div class="alert alert-danger">Once Payment has been verified, you may generate Raffle Numbers</div>
+        </cfif>
+    </cfif>
         
 
 
