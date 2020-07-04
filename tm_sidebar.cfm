@@ -25,7 +25,7 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item <cfif cgi.script_name EQ "/pb_report_eligible_raffle_nbrs.cfm">active</cfif>" href="pb_report_eligible_raffle_nbrs.cfm">All Eligible Raffle Numbers</a>
           <a class="dropdown-item <cfif cgi.script_name EQ "/pb_report_used_raffle_nbrs.cfm">active</cfif>" href="pb_report_used_raffle_nbrs.cfm">All Currently Used Raffle Numbers</a>
-          <a class="dropdown-item <cfif cgi.script_name EQ "/pb_raffle_winner.cfm">active</cfif>" href="pb_raffle_winner.cfm">Input Raffle Number to Get Winners</a>
+          <a class="dropdown-item <cfif cgi.script_name EQ "/pb_raffle_winner_old.cfm">active</cfif>" href="pb_raffle_winner_old.cfm">Input Raffle Number to Get Winners</a>
           <a class="dropdown-item <cfif cgi.script_name EQ "/pb_report_family_totals.cfm">active</cfif>" href="pb_report_family_totals.cfm">Donations per Parish Family</a>
           <a class="dropdown-item <cfif cgi.script_name EQ "/pb_report_mail.cfm">active</cfif>" href="pb_report_mail.cfm">Current Email Report</a>
         </div>
