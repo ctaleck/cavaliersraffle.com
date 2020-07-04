@@ -84,14 +84,14 @@
             </div>
         </div>
         <nav class="navbar navbar-dark fixed-top box-shadow bg-blue">
-            <div class="container d-flex justify-content-between">
+            <div class="w-100 d-flex justify-content-between">
                 <a href="#" class="navbar-brand d-flex align-items-center">
                     <span class="d-md-none"><strong>OLOSA</strong></span>
                     <span class="d-none d-md-block"><strong>Our Lady of Sorrows Academy</strong></span>
                 </a>
                 <button title="More about donations" class="navbar-toggler" type="button" data-toggle="collapse" onClick="viewMore()"
                     data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-caret-bottom"></span>
+                    <span class="oi oi-question-mark"></span>
                 </button>
             </div>
         </nav>

@@ -1,7 +1,7 @@
     <footer class="bg-blue py-5">
-        <div class="container">
-            <p class="text-white float-right">
-                <a href="#">Back to top</a>
+        <div class="container-fluid">
+            <p class="text-muted float-right">
+                Hosted by <a href="http://www.stldesigns.com" target="_blank">StLDesigns.com</a>
             </p>
             <p><a href="https://ourladyofsorrows-academy.com/en">Our Lady of Sorrows Academy</a></p>
         </div>

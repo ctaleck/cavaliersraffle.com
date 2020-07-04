@@ -7,6 +7,8 @@
 
 <cfif IsDefined("url.ID")>
 	<cfset variables.ID = url.id>
+    <cfset variables.pb_donation_id = url.pb_donation_id>
+    <cfset variables.pb_start_date = url.pb_start_date>
 </cfif>
 
     <div class="container-fluid py-5">
@@ -96,6 +98,9 @@
                 <div class="row">
                     <div class="col-md-12 mt-5 text-center">
                         <cfinput class="btn btn-success" type="submit" name="submit" value="Update" validate="SubmitOnce">
+                    <cfoutput>
+                        <a class="btn btn-default" href="pb_report_details.cfm?ID=#URLEncodedFormat(variables.id)#&pb_donation_id=#URLEncodedFormat(variables.pb_donation_id)#&pb_start_date=#URLEncodedFormat(variables.pb_start_date)#">Cancel</a>
+                    </cfoutput>
                     </div>
                 </div>
             </cfoutput>

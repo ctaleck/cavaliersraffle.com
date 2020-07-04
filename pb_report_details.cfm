@@ -250,7 +250,7 @@
                     <input type="hidden" name="pb_donation_id" value="#variables.pb_donation_id#" />
                     <input type="hidden" name="pb_start_date" value="#variables.pb_start_date#" />
                 </cfoutput>
-                <cfinput class="btn btn-primary" type="Submit" name="submit" value="Submit" validate="SubmitOnce">
+                <cfinput class="btn btn-primary" type="Submit" name="submit" value="Save" validate="SubmitOnce">
             </div>
         </cfform>
     </div>
@@ -292,7 +292,7 @@
                 </div>
                 <div class="container-fluid py-5">
                     <cfoutput>
-                        <a class="btn btn-success" href="pb_update_details.cfm?ID=#URLEncodedFormat(variables.id)#"><span>Update Contact Information</span></a>
+                        <a class="btn btn-success" href="pb_update_details.cfm?ID=#URLEncodedFormat(variables.id)#&pb_donation_id=#URLEncodedFormat(variables.pb_donation_id)#&pb_start_date=#URLEncodedFormat(variables.pb_start_date)#"><span>Update Contact Information</span></a>
                     </cfoutput>
                 </div>
             <cfelse>
