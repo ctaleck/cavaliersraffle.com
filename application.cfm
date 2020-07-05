@@ -43,7 +43,7 @@ While your user keeps their browser open, session variables will stay alive, but
 
 <!--- Give variable names to the database tables --->
 <cfset variables.str_pool = "tbl_cav_pool">
-<cfset variables.str_family = "tbl_cav_qhra_family">
+<cfset variables.str_family = "tbl_cav_phx_family">
 <cfset variables.str_donation = "tbl_cav_donation">
 <cfset variables.str_term = "tbl_cav_term">
 <cfset variables.str_donor = "tbl_cav_donor">

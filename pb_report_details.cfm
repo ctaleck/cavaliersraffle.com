@@ -72,14 +72,14 @@
         
         <cfif selCurrentDonors.pb_gift is "Y">
             <cfquery name="selGiftedFamily" datasource="#request.datasource#">
-                select pb_qhra_family_name,
-                        pb_qhra_family_email
+                select pb_phx_family_name,
+                        pb_phx_family_email
                     from #variables.str_family#
                     where id = #selCurrentDonors.id#
                     and pb_donation_id = <cfqueryparam value="#variables.pb_donation_id#" cfsqltype="cf_sql_integer">
             </cfquery>
-            <cfset variables.family_name = selGiftedFamily.pb_qhra_family_name>
-            <cfset variables.family_email = selGiftedFamily.pb_qhra_family_email>
+            <cfset variables.family_name = selGiftedFamily.pb_phx_family_name>
+            <cfset variables.family_email = selGiftedFamily.pb_phx_family_email>
         <cfelse>
                 <cfset variables.family_name = "NA">
             <cfset variables.family_email = "NA">                           	
@@ -295,13 +295,15 @@
             </div>
         </div>
     <cfelse>
-        <cfif selCurrentDonors.pb_payment_verified is "Y">
-            <cfoutput>
-                <a class="btn btn-primary" href="gen_raffle_nbrs.cfm?ID=#URLEncodedFormat(variables.id)#">Generate Raffle Numbers</a>
-            </cfoutput>
-        <cfelse>
-            <div class="alert alert-danger">Once Payment has been verified, you may generate Raffle Numbers</div>
-        </cfif>
+        <div class="container-fluid py-5">
+            <cfif selCurrentDonors.pb_payment_verified is "Y">
+                <cfoutput>
+                    <a class="btn btn-primary" href="gen_raffle_nbrs.cfm?ID=#URLEncodedFormat(variables.id)#">Generate Raffle Numbers</a>
+                </cfoutput>
+            <cfelse>
+                <div class="alert alert-danger">Once Payment has been verified, you may generate Raffle Numbers</div>
+            </cfif>
+        </div>
     </cfif>
         
 

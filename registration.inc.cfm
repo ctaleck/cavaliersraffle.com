@@ -131,17 +131,17 @@
                                 </label>
                             </div>
                         </div>
-                        <label class="" for="pb_qhra_family_name">Name</label>
+                        <label class="" for="pb_phx_family_name">Name</label>
                         <div class="input-group mb-2">
                             <cfinput type="text" class="form-control"
-                                        name="pb_qhra_family_name"
+                                        name="pb_phx_family_name"
                                         size="40"
                                         maxlength="85">
                         </div>
-                        <label class="" for="pb_qhra_family_email">Email</label>
+                        <label class="" for="pb_phx_family_email">Email</label>
                         <div class="input-group mb-2">
                             <cfinput type="text" class="form-control"
-                                        name="pb_qhra_family_email"
+                                        name="pb_phx_family_email"
                                         size="40"
                                         maxlength="150">
                         </div>

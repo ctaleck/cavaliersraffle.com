@@ -271,13 +271,13 @@
                     insert into [#variables.str_family#]
                            (ID,
                            pb_donation_id,
-                           pb_qhra_family_name,
-                           pb_qhra_family_email
+                           pb_phx_family_name,
+                           pb_phx_family_email
                            )
                    values (<cfqueryparam value="#variables.new_ID#" cfsqltype="cf_sql_integer">,
                            <cfqueryparam value="#variables.next_donation_ID#" cfsqltype="cf_sql_integer">,
-                           <cfqueryparam value="#form.pb_qhra_family_name#" cfsqltype="cf_sql_varchar">,
-                           <cfqueryparam value="#form.pb_qhra_family_email#" cfsqltype="cf_sql_varchar">
+                           <cfqueryparam value="#form.pb_phx_family_name#" cfsqltype="cf_sql_varchar">,
+                           <cfqueryparam value="#form.pb_phx_family_email#" cfsqltype="cf_sql_varchar">
                            )
                 </cfquery> 
             </cfif>

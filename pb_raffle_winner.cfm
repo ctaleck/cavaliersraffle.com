@@ -8,23 +8,6 @@
 	<cflocation url="admin.cfm" addtoken="no">
 </cfif>
 
-<!--- Start Random Number Generator Code --->
-<style type="text/css">
-	fieldset input {
-		display: block;
-	}
-	#result {
-		border: solid 1px black;
-		background: #e0e0e0;
-		padding: 1em;
-		margin: 1em 0;
-	}
-	#ajax-loader {
-		display: none;
-		margin-bottom: -4px;
-	}
-</style>
-
 <cfinclude template="js/rusure.js">
 <cfinclude template="header.cfm">
 <cfinclude template="tm_sidebar.cfm">
@@ -46,36 +29,29 @@
      order by 1
 </cfquery>
 
-    <div class="container-fluid py-5">
-        <cfif NOT IsDefined("form.winning_number")>
-            <h1>Winning Raffle Number Entry</h1>
-        <cfelse>
-            <h1>Winning Number and Piggybacks</h1>
-        </cfif>
+    <cfif NOT IsDefined("form.winning_number")>
+        <!--- Start Random Number Generator Code --->
 
-        <cfif NOT IsDefined("form.winning_number")>
-            <!--- Start Random Number Generator Code --->
+        <cfquery name="selUsedNumbers" datasource="#request.datasource#">
+            select [raffle_nbr]                                   
+                from #variables.str_raffle#
+                where convert(varchar(10), [pb_start_date], 111) <= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_varchar">
+                and convert(varchar(10), [pb_end_date], 111) >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_varchar">
+                order by 1
+        </cfquery>
 
-            <cfquery name="selUsedNumbers" datasource="#request.datasource#">
-                select [raffle_nbr]                                   
-                    from #variables.str_raffle#
-                    where convert(varchar(10), [pb_start_date], 111) <= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_varchar">
-                    and convert(varchar(10), [pb_end_date], 111) >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_varchar">
-                    order by 1
-            </cfquery>
-
-            <!--- Query to get list of eligible raffle numbers --->
-            <cfset variables.eligible_number_list = "">
-            <cfloop query="#selUsedNumbers#">
-                <cfset variables.eligible_number_list = ListAppend(variables.eligible_number_list, selUsedNumbers.raffle_nbr,", ")>
-            </cfloop>
-            
-            <!--- Define the list of numbers in a string. --->
-            <cfset strList = variables.eligible_number_list>
-            
-            <!--- Create a struct to hold the list of selected numbers. Because structs are indexed by key, it will allow us to not select duplicate values.--->
-            <cfset objSelections = {} />
-            
+        <!--- Query to get list of eligible raffle numbers --->
+        <cfset variables.eligible_number_list = "">
+        <cfloop query="#selUsedNumbers#">
+            <cfset variables.eligible_number_list = ListAppend(variables.eligible_number_list, selUsedNumbers.raffle_nbr,", ")>
+        </cfloop>
+        
+        <!--- Define the list of numbers in a string. --->
+        <cfset strList = variables.eligible_number_list>
+        <!--- Create a struct to hold the list of selected numbers. Because structs are indexed by key, it will allow us to not select duplicate values.--->
+        <cfset objSelections = {} />
+        
+        <cfif strList NEQ "">
             <!--- Now, all we have to do is pick random numbers until our struct count is the desired size (1).--->
             <cfloop condition="(StructCount( objSelections ) LT 1)">
             
@@ -85,39 +61,61 @@
                 <!--- Add the random item to our collection. If we have already picked this number, then it will simply overwrite the previous and the StructCount() will not be changed. --->
                 <cfset objSelections[ ListGetAt( strList, intIndex ) ] = true />
             </cfloop>
-            
-            <!--- Random Number output --->
-            <!--- <cfoutput>#StructKeyList( objSelections )#</cfoutput> (Look in textbox) --->
-
-
-            <cfform name="quote_request" action="pb_raffle_winner.cfm" method="post">
-                <cfoutput>
-                <p>The Winning Raffle Number is Shown Below</p>
-                <cfinput type="text"
-                            value="#StructKeyList( objSelections )#" <!--- Random Number output --->                                                       
-                            name="winning_number"
-                            size="4"
-                            readonly="yes"
-                            maxlength="5">
-                Eligible Numbers:<br />
-                <textarea style="width: 500px;height: 250px;" name="thing" id="thing" disabled="disabled">#variables.eligible_number_list#</textarea>
-                <!--- //set a random number --->
-                <cfset variables.formValidator = RandRange(1,100000)>
-                <!--- //Set a session with this value --->
-                <cfset Session.formValidator = variables.formValidator>
-                <!--- // add the random number in your form --->
-                <input type="hidden" name="formValidator" value="#variables.formValidator#">
-                    
-                <cfinput class="btn btn-primary" type="submit" name="submit" value="Submit" validate="SubmitOnce">
-                </cfoutput>
-            </cfform> 
+        </cfif>
+        <!--- Random Number output --->
+        <!--- <cfoutput>#StructKeyList( objSelections )#</cfoutput> (Look in textbox) --->
+        <div class="container-fluid py-5">
+            <h1>Winning Raffle Number Entry</h1>
+            <div class="card card-body">
+                <cfform name="quote_request" action="pb_raffle_winner.cfm" method="post">
+                    <cfoutput>
+                    <div class="form-group">
+                        <label for="winner" class="form-control-label">The Winning Raffle Number is Shown Below</label>
+                        <cfinput type="text" class="form-control" id="winner"
+                                    value="#StructKeyList( objSelections )#" <!--- Random Number output --->                                                       
+                                    name="winning_number"
+                                    size="4"
+                                    readonly="yes"
+                                    maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="thing" class="form-control-label">Eligible Numbers</label>
+                        <textarea class="form-control" name="thing" id="thing" disabled="disabled">#variables.eligible_number_list#</textarea>
+                    </div>
+                    <!--- //set a random number --->
+                    <cfset variables.formValidator = RandRange(1,100000)>
+                    <!--- //Set a session with this value --->
+                    <cfset Session.formValidator = variables.formValidator>
+                    <!--- // add the random number in your form --->
+                    <input type="hidden" name="formValidator" value="#variables.formValidator#">
+                        
+                    <cfinput class="btn btn-primary" type="submit" name="submit" value="Email Winners" validate="SubmitOnce">
+                    </cfoutput>
+                </cfform> 
+            </div>
+        </div>
+    <cfelse>
+        <cfquery name="qry_qry_number_exists" dbtype="query">
+            select distinct raffle_nbr
+                from selUsedNumbers
+                where raffle_nbr = <cfqueryparam value="#form.winning_number#" cfsqltype="cf_sql_integer">
+        </cfquery>
+        
+        <cfif qry_qry_number_exists.RecordCount is 0>
+            <script language="JavaScript1.2">
+                alert("The Raffle Number you provided is not valid for this month's drawing!")
+                history.go(-1)   
+            </script>
+            <cfabort>     		
         <cfelse>
+            <!--- check to see if the provided raffle number is in the valid list --->
             <cfquery name="qry_qry_number_exists" dbtype="query">
                 select distinct raffle_nbr
                     from selUsedNumbers
                     where raffle_nbr = <cfqueryparam value="#form.winning_number#" cfsqltype="cf_sql_integer">
             </cfquery>
             
+            <!--- If not, provide the error message and make them pick another number --->
             <cfif qry_qry_number_exists.RecordCount is 0>
                 <script language="JavaScript1.2">
                     alert("The Raffle Number you provided is not valid for this month's drawing!")
@@ -125,94 +123,78 @@
                 </script>
                 <cfabort>     		
             <cfelse>
-                <!--- check to see if the provided raffle number is in the valid list --->
-                <cfquery name="qry_qry_number_exists" dbtype="query">
-                    select distinct raffle_nbr
-                        from selUsedNumbers
-                        where raffle_nbr = <cfqueryparam value="#form.winning_number#" cfsqltype="cf_sql_integer">
+                <!--- The number was a good one.  Get a list of ALL the valid raffle numbers --->
+                <cfset variables.raffle_nbrs = "">
+                <cfloop query="selUsedNumbers">
+                    <cfset variables.raffle_nbrs = ListAppend(variables.raffle_nbrs, selUsedNumbers.raffle_nbr)>
+                </cfloop>
+            
+                <!--- Next, get the position within the list of the winner --->
+                <cfscript>
+                    myList="#variables.raffle_nbrs#";
+                    myFind=ListFind(myList,"#form.winning_number#");
+                    
+                    piggyback_pre =  myFind - 1;  
+                    piggyback_post =  myFind + 1;  
+                </cfscript> 
+                
+                <!--- Set the winner to a variable --->
+                <cfset variables.winner = form.winning_number>
+                
+                <!--- Let's get the before and after piggyback winners. --->
+                <cfif variables.winner is ListFirst(variables.raffle_nbrs)>
+                    <!--- The winning number was the first number in the list of valid raffle numbers, so the piggyback "before" reverts to the very LAST number in the list --->
+                    <cfset variables.winner_before = ListLast(variables.raffle_nbrs)>
+                <cfelse>
+                    <cfset variables.winner_before = ListGetAt(variables.raffle_nbrs,piggyback_pre)>
+                </cfif>
+                
+                <cfif variables.winner is ListLast(variables.raffle_nbrs)>
+                    <!--- The winning number was the last number in the list of valid raffle numbers, so the piggyback "after" reverts to the very FIRST number in the list --->
+                    <cfset variables.winner_after = ListFirst(variables.raffle_nbrs)>
+                <cfelse>
+                    <cfset variables.winner_after = ListGetAt(variables.raffle_nbrs,piggyback_post)>
+                </cfif> 
+            
+                <!--- Do a true query to get the matching ID to the winning raffle numbers --->
+                <cfquery name="selGetDonors" datasource="#request.datasource#">
+                    select [id], [raffle_nbr]                                   
+                        from #variables.str_raffle#
+                        where raffle_nbr in (#variables.winner#,#variables.winner_before#,#variables.winner_after#)
+                        order by 1
                 </cfquery>
                 
-                <!--- If not, provide the error message and make them pick another number --->
-                <cfif qry_qry_number_exists.RecordCount is 0>
-                    <script language="JavaScript1.2">
-                        alert("The Raffle Number you provided is not valid for this month's drawing!")
-                        history.go(-1)   
-                    </script>
-                    <cfabort>     		
-                <cfelse>
-                    <!--- The number was a good one.  Get a list of ALL the valid raffle numbers --->
-                    <cfset variables.raffle_nbrs = "">
-                    <cfloop query="selUsedNumbers">
-                        <cfset variables.raffle_nbrs = ListAppend(variables.raffle_nbrs, selUsedNumbers.raffle_nbr)>
-                    </cfloop>
-                
-                    <!--- Next, get the position within the list of the winner --->
-                    <cfscript>
-                        myList="#variables.raffle_nbrs#";
-                        myFind=ListFind(myList,"#form.winning_number#");
-                        
-                        piggyback_pre =  myFind - 1;  
-                        piggyback_post =  myFind + 1;  
-                    </cfscript> 
-                    
-                    <!--- Set the winner to a variable --->
-                    <cfset variables.winner = form.winning_number>
-                    
-                    <!--- Let's get the before and after piggyback winners. --->
-                    <cfif variables.winner is ListFirst(variables.raffle_nbrs)>
-                        <!--- The winning number was the first number in the list of valid raffle numbers, so the piggyback "before" reverts to the very LAST number in the list --->
-                        <cfset variables.winner_before = ListLast(variables.raffle_nbrs)>
-                    <cfelse>
-                        <cfset variables.winner_before = ListGetAt(variables.raffle_nbrs,piggyback_pre)>
-                    </cfif>
-                    
-                    <cfif variables.winner is ListLast(variables.raffle_nbrs)>
-                        <!--- The winning number was the last number in the list of valid raffle numbers, so the piggyback "after" reverts to the very FIRST number in the list --->
-                        <cfset variables.winner_after = ListFirst(variables.raffle_nbrs)>
-                    <cfelse>
-                        <cfset variables.winner_after = ListGetAt(variables.raffle_nbrs,piggyback_post)>
-                    </cfif> 
-                
-                    <!--- Do a true query to get the matching ID to the winning raffle numbers --->
-                    <cfquery name="selGetDonors" datasource="#request.datasource#">
-                        select [id], [raffle_nbr]                                   
-                            from #variables.str_raffle#
-                            where raffle_nbr in (#variables.winner#,#variables.winner_before#,#variables.winner_after#)
-                            order by 1
-                    </cfquery>
-                    
-                    <!--- Set the winning ID's to a list --->
-                    <cfset variables.winner_list = "">
-                    <cfloop query="selGetDonors">
-                        <cfset variables.winner_list = ListAppend(variables.winner_list,selGetDonors.ID)>
-                    </cfloop>
+                <!--- Set the winning ID's to a list --->
+                <cfset variables.winner_list = "">
+                <cfloop query="selGetDonors">
+                    <cfset variables.winner_list = ListAppend(variables.winner_list,selGetDonors.ID)>
+                </cfloop>
 
-                    <!--- Get the rest of the winner information for display --->
-                    <cfquery name="selWinningDonors" datasource="#request.datasource#">
-                        select a.[ID], 
-                                a.[pb_last_name], 
-                                a.[pb_first_name], 
-                                a.[pb_email], 
-                                a.[pb_phone], 
-                                a.[pb_address], 
-                                a.[pb_city], 
-                                a.[pb_state], 
-                                a.[pb_zipcode], 
-                                a.[pb_info_source],
-                                a.[pb_gift],
-                                b.[raffle_nbr]
-                            from #variables.str_donor# as a
-                            inner join #variables.str_raffle# as b on a.id = b.id
-                            where a.ID in (#variables.winner_list#)
-                        order by 1
-                    </cfquery> 
-                    
+                <!--- Get the rest of the winner information for display --->
+                <cfquery name="selWinningDonors" datasource="#request.datasource#">
+                    select a.[ID], 
+                            a.[pb_last_name], 
+                            a.[pb_first_name], 
+                            a.[pb_email], 
+                            a.[pb_phone], 
+                            a.[pb_address], 
+                            a.[pb_city], 
+                            a.[pb_state], 
+                            a.[pb_zipcode], 
+                            a.[pb_info_source],
+                            a.[pb_gift],
+                            b.[raffle_nbr]
+                        from #variables.str_donor# as a
+                        inner join #variables.str_raffle# as b on a.id = b.id
+                        where a.ID in (#variables.winner_list#)
+                    order by 1
+                </cfquery> 
+                <div class="container-fluid py-5">
+                <h1>Winning Number and Piggybacks</h1>
+                <h2>The Raffle Winners</h2>
                     <cfoutput>
-                        <table border="1" cellpadding="3" cellspacing="0" width="150%">					
-                            <tr bgcolor="lightgrey">
-                                <th style="font-size:20px; text-align:center" colspan="3">The Raffle Winners</th>
-                            </tr>
-                            <tr bgcolor="lightgrey">
+                        <table>					
+                            <tr>
                                 <th align="center">$200 Raffle Winner</th>
                                 <th align="center">$50 Piggyback (before)</th>
                                 <th align="center">$50 Piggyback (after)</th>
@@ -343,10 +325,10 @@
                             <input type="hidden" name="winner_after_last" value="#qry_qry_winner_after.pb_last_name#" />
                             <input type="hidden" name="winner_after_email" value="#qry_qry_winner_after.pb_email#" />
                         </cfform>        
-                    </cfoutput>                                
-                </cfif>
-            </cfif>                                    
-        </cfif>
-    </div>
+                    </cfoutput> 
+                </div                               
+            </cfif>
+        </cfif>                                    
+    </cfif>
 
 <cfinclude template="footer.cfm">
