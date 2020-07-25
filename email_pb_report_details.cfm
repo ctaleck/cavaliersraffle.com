@@ -6,8 +6,7 @@
             bcc = "cavaliersraffle@olosa.org"
             from = "cavaliersraffle@olosa.org"
             failto = "cavaliersraffle@olosa.org"
-            subject = "#variables.selCurrentDonors_pb_first_name# #variables.selCurrentDonors_pb_last_name#'s CavaliersRaffle.com Numbers"
-            username = "PiggybackFacilitator@piggybackraffle.org"
+            subject = "#variables.selCurrentDonors_pb_first_name# #variables.selCurrentDonors_pb_last_name#'s CavaliersRaffle.com numbers"
             type="html"
             server = "localhost">
 <cfmailpart type="text" wraptext="74"> 
@@ -73,7 +72,7 @@ This email was sent to #variables.selCurrentDonors_pb_email# from cavaliersraffl
                 <table align="center" cellspacing="0" cellpadding="0" border="0" style="margin: auto;">
                     <tr>
                         <td class="button-td button-td-primary" style="border-radius: 4px; background: ##35355A;">
-                                <a class="button-a button-a-primary" href="http://cavaliersraffle.com" style="background: ##b81413; border: 1px solid ##b81413; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: ##ffffff; display: block; border-radius: 4px;">CavaliersRaffle.com</a>
+                                <a class="button-a button-a-primary" href="#variables.email_web_address#" style="background: ##b81413; border: 1px solid ##b81413; font-family: sans-serif; font-size: 15px; line-height: 15px; text-decoration: none; padding: 13px 17px; color: ##ffffff; display: block; border-radius: 4px;">CavaliersRaffle.com</a>
                         </td>
                     </tr>
                 </table>

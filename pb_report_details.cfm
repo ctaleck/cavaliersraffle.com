@@ -248,8 +248,6 @@
             </cfif>
         </div>
     </cfif>
-        
-
 
 <cfinclude template="footer.cfm">
 

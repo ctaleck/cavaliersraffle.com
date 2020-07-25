@@ -1,3 +1,5 @@
+<cftry>
+
 <cfif ParameterExists(form.formValidator)>
 	<cfif form.formValidator NEQ session.formValidator>
         <cflocation url="oops-error.cfm" addtoken="no">
@@ -95,13 +97,15 @@
             </div>
         </div>
     <cfelse>
-        <cfquery name="qry_qry_number_exists" dbtype="query">
-            select distinct raffle_nbr
-                from selUsedNumbers
-                where raffle_nbr = <cfqueryparam value="#form.winning_number#" cfsqltype="cf_sql_integer">
-        </cfquery>
-        
-        <cfif qry_qry_number_exists.RecordCount is 0>
+        <cfif IsNumeric(form.winning_number)>
+            <cfquery name="qry_qry_number_exists" dbtype="query">
+                select distinct raffle_nbr
+                    from selUsedNumbers
+                    where raffle_nbr = <cfqueryparam value="#form.winning_number#" cfsqltype="cf_sql_integer">
+            </cfquery>
+        </cfif>
+
+        <cfif IsDefined("qry_qry_number_exists") and qry_qry_number_exists.RecordCount is 0>
             <script language="JavaScript1.2">
                 alert("The Raffle Number you provided is not valid for this month's drawing!")
                 history.go(-1)   
@@ -332,3 +336,8 @@
     </cfif>
 
 <cfinclude template="footer.cfm">
+
+    <cfcatch type="any">
+        Error: <cfoutput>#cfcatch.message#</cfoutput>
+    </cfcatch>
+</cftry>
