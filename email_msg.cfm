@@ -10,15 +10,20 @@
             type="html"
             server = "localhost">
 <cfmailpart type="text" wraptext="74"> 
-Title
-
-Text
-
-#variables.email_spam_text#
-
-#variables.email_address_text#
-
-#variables.email_exempt_text#
+Title   
+   
+Text   
+   
+<cfif Len(variables.email_sent_to) gt 0>
+This email was sent to #variables.email_sent_to# from cavaliersraffle@olosa.org.   
+</cfif>
+   
+#variables.email_spam_text#   
+   
+#variables.email_address_text#   
+   
+#variables.email_exempt_text#   
+   
 </cfmailpart> 
 <cfmailpart type="html">
     <cfinclude template="email_msg_header.cfm">

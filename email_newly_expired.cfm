@@ -1,5 +1,6 @@
 <!--- Start of email to anyone whose raffle number(s) will be expiring after today's drawing --->
 <!-- Make sure to escape hash (##) -->
+<cfset variables.email_raffle_month_year = DateFormat(now(), "mmmm yyyy")>
 <cfset variables.email_preheader_text = "Open to find out about your expiring raffle ticket.">
 <cfset variables.email_sent_to = "">
 <cfif Not IsDefined("variables.expired_email_list")>
@@ -10,19 +11,24 @@
             bcc = "#variables.expired_email_list#, cavaliersraffle@olosa.org"
             from = "cavaliersraffle@olosa.org"
             failto = "cavaliersraffle@olosa.org"
-            subject = "Expiring raffle tickets in #MonthAsString(Month(Now()))#"
+            subject = "CavalierRaffle.com #variables.email_raffle_month_year#"
             type="html"
             server = "localhost">
-<cfmailpart type="text" wraptext="74"> 
-Our friendly notification to you
-
-After today's raffle drawing, you have one (or more) CavaliersRaffle.com numbers that will expire. If you would like to renew for another year, and we sincerely hope you do, please go to #variables.email_web_address#.
-
-#variables.email_spam_text#
-
-#variables.email_address_text#
-
-#variables.email_exempt_text#
+<cfmailpart type="text" wraptext="74">
+Our friendly notification to you   
+   
+After today's raffle drawing, you have one (or more) CavaliersRaffle.com numbers that will expire. If you would like to renew for another year, and we sincerely hope you do, please go to #variables.email_web_address#.   
+   
+<cfif Len(variables.email_sent_to) gt 0>
+This email was sent to #variables.email_sent_to# from cavaliersraffle@olosa.org.   
+</cfif>
+   
+#variables.email_spam_text#   
+   
+#variables.email_address_text#   
+   
+#variables.email_exempt_text#   
+   
 </cfmailpart> 
 <cfmailpart type="html">
     <cfinclude template="email_msg_header.cfm">
