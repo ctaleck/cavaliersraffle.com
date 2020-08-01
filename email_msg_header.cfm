@@ -1,5 +1,3 @@
-<cfoutput>
-    <!-- Make sure to escape hash (##) -->
     <!DOCTYPE html>
     <!-- See https://tedgoas.github.io/Cerberus/ -->
     <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -154,14 +152,14 @@
                 width: 100%;
             }
             .bg-cavalier-blue {
-                background-color: ##35355A;
+                background-color: #35355A;
             }
             a {
-                color: ##b81413;
+                color: #b81413;
                 text-decoration: none;
             }
             a:hover {
-                color: ##b81413;
+                color: #b81413;
                 text-decoration: underline;
             }
             .center-cropped-md {
@@ -172,55 +170,146 @@
                 font-family: 'Contrail One', cursive;
             }
         
-    	    /* What it does: Hover styles for buttons */
-    	    .button-td,
-    	    .button-a {
-    	        transition: all 100ms ease-in;
-    	    }
-    	    .button-td-primary:hover,
-    	    .button-a-primary:hover {
-    	        background: ##b81413 !important;
-    	        border-color: ##b81413 !important;
-    	    }
+            /* What it does: Hover styles for buttons */
+            .button-td,
+            .button-a {
+                transition: all 100ms ease-in;
+            }
+            .button-td-primary:hover,
+            .button-a-primary:hover {
+                background: #b81413 !important;
+                border-color: #b81413 !important;
+            }
     
-    	    /* Media Queries */
-    	    @media screen and (max-width: 600px) {
+            /* Media Queries */
+            @media screen and (max-width: 600px) {
     
-    	        /* What it does: Adjust typography on small screens to improve readability */
-    	        .email-container p {
-    	            font-size: 17px !important;
-    	        }
+                /* What it does: Adjust typography on small screens to improve readability */
+                .email-container p {
+                    font-size: 17px !important;
+                }
     
-    	    }
+            }
     
         </style>
         <!-- Progressive Enhancements : END -->
     
+        <!-- 3-column responsive layout for html email : BEGIN -->
+        <style type="text/css">
+            /* Client-specific Styles */
+            #outlook a {
+                padding: 0;
+            } /* Force Outlook to provide a "view in browser" menu link. */
+            body {
+                width: 100% !important;
+                -webkit-text-size-adjust: 100%;
+                -ms-text-size-adjust: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+            .ExternalClass {
+                width: 100%;
+            } /* Force Hotmail to display emails at full width */
+            .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {
+                line-height: 100%;
+            } /* Force Hotmail to display normal line spacing.  More on that: http://www.emailonacid.com/forum/viewthread/43/ */
+            #backgroundTable {
+                margin: 0;
+                padding: 0;
+                width: 100% !important;
+                line-height: 100% !important;
+            }
+            img {
+                outline: none;
+                text-decoration: none;
+                border: none;
+                -ms-interpolation-mode: bicubic;
+            }
+            a img {
+                border: none;
+            }
+            .image_fix {
+                display: block;
+            }
+            p {
+                margin: 0px 0px !important;
+            }
+            table td {
+                border-collapse: collapse;
+            }
+            table {
+                border-collapse: collapse;
+                mso-table-lspace: 0pt;
+                mso-table-rspace: 0pt;
+            }
+
+            /* IPHONE STYLES */
+            @media only screen and (max-width: 600px) {
+            table {
+                position: relative;
+            }
+
+            table[class="fluid-table"], td[class="fluid-cell"]{
+                width: 100% !important;
+                padding: 20px 0px 20px 0px!important;
+            }
+
+            img[class="fluid-image"] {
+                width: 100% !important;
+                height: auto !important;
+            }
+            }
+            </style>
+        <!-- 3-column responsive layout for html email : END -->
+
+        <!-- custom : BEGIN -->
+            <style>
+            .bg-red {
+                color: white;
+                background-color: #b81413;
+                border: 5px solid #D06262;
+            }
+            .bg-yellow {
+                color: white;
+                background-color: #EA6700;
+                border: 5px solid #EF8939;
+            }
+            .bg-red.highlight {
+                border: 5px dashed #D06262;
+            }
+            .bg-yellow.highlight {
+                border: 5px dashed #EF8939;
+            }
+            </style>
+        <!-- custom : END -->
     </head>
     <!--
-    	The email background color (##35355A) is defined in three places:
-    	1. body tag: for most email clients
-    	2. center tag: for Gmail and Inbox mobile apps and web versions of Gmail, GSuite, Inbox, Yahoo, AOL, Libero, Comcast, freenet, Mail.ru, Orange.fr
-    	3. mso conditional: For Windows 10 Mail
+        The email background color (#35355A) is defined in three places:
+        1. body tag: for most email clients
+        2. center tag: for Gmail and Inbox mobile apps and web versions of Gmail, GSuite, Inbox, Yahoo, AOL, Libero, Comcast, freenet, Mail.ru, Orange.fr
+        3. mso conditional: For Windows 10 Mail
     -->
-    <body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: ##35355A;">
-    	<center style="width: 100%; background-color: ##35355A;">
+    <body width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly; background-color: #35355A;">
+        <center style="width: 100%; background-color: #35355A;">
         <!--[if mso | IE]>
-        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: ##35355A;">
+        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #35355A;">
         <tr>
         <td>
         <![endif]-->
     
             <!-- Visually Hidden Preheader Text : BEGIN -->
             <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-                #variables.email_preheader_text#
+                <cfoutput>
+                    #variables.email_preheader_text#
+                </cfoutput>
             </div>
             <!-- Visually Hidden Preheader Text : END -->
     
             <!-- Create white space after the desired preview text so email clients don’t pull other distracting text into the inbox preview. Extend as necessary. -->
             <!-- Preview Text Spacing Hack : BEGIN -->
             <div style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-    	        &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
+                &zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;
             </div>
             <!-- Preview Text Spacing Hack : END -->
     
@@ -236,26 +325,25 @@
                 <td>
                 <![endif]-->
     
-    	        <!-- Email Body : BEGIN -->
+                <!-- Email Body : BEGIN -->
                 <table align="center" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin: auto;">
                 <!-- Email Header : BEGIN -->
                 <tr>
                     <td style="padding: 20px 0; text-align: center">
-                        <img src="https://ourladyofsorrows-academy.com/sites/sspx/files/media/usa-s-phoenix/pub-academy/olosa-email-crest.png" width="140" height="140" alt="OLOSA crest" border="0" style="height: auto; background: ##35355A; font-family: sans-serif; font-size: 15px; line-height: 15px; color: ##555555;">
+                        <img src="https://ourladyofsorrows-academy.com/sites/sspx/files/media/usa-s-phoenix/pub-academy/olosa-email-crest.png" width="140" height="140" alt="OLOSA crest" border="0" style="height: auto; background: #35355A; font-family: sans-serif; font-size: 15px; line-height: 15px; color: 555555;">
                     </td>
                 </tr>
                 <!-- Email Header : END -->
     
                 <!-- Hero Image, Flush : BEGIN -->
                 <tr>
-                    <td style="background-color: ##ffffff;">
-                        <img src="http://cavaliersraffle.com/images/cavaliers-raffle-email.jpg" width="600" height="" alt="CavaliersRaffle.com logo" border="0" style="width: 100%; max-width: 600px; height: auto; background: ##dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: ##555555; margin: auto; display: block;" class="g-img">
+                    <td style="background-color: #ffffff;">
+                        <img src="http://cavaliersraffle.com/images/cavaliers-raffle-email.jpg" width="600" height="" alt="CavaliersRaffle.com logo" border="0" style="width: 100%; max-width: 600px; height: auto; background: dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: 555555; margin: auto; display: block;" class="g-img">
                     </td>
                 </tr>
                 <!-- Hero Image, Flush : END -->
     
                 <!-- 1 Column Text + Button : BEGIN -->
                 <tr>
-                    <td style="background-color: ##ffffff;">
+                    <td style="background-color: #ffffff;">
                         <!-- Email Body Content: BEGIN -->
-</cfoutput>

@@ -1,4 +1,6 @@
 <!--- Start of Email to the Piggyback (AFTER) Winner --->
+<cfset variables.current_email = "email_winner_before.cfm">
+
 <cftry>
 
 <cfif isDefined("Url.Test")>
@@ -109,36 +111,7 @@ This email was sent to #variables.email_sent_to# from cavaliersraffle@olosa.org.
             </tr>
             <tr>
                 <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: ##555555;">
-                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                        <tr>
-                            <td align="center" width="33%"  style="border: 1px solid ##b81413; padding: 20px; margin: 0; height: 100%;">
-                                <div>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:18px;">$50</p>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:18px;">#variables.raffle_winner_before#</p>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:21px;">#variables.winner_before_first# #variables.winner_before_last_full#</p>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:16px;">#qry_qry_before_state.state_name#</p>
-                                </div>
-                            </td>
-                            <td width="20px"></td>
-                            <td align="center" width="33%"  style="border: 1px dotted ##555555; padding: 20px; margin: 0; height: 100%;">
-                                <div>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:18px;">$200</p>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:18px;">#variables.raffle_winner#</p>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:21px;">#variables.winner_first# #variables.winner_last_full#</p>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:16px;">#qry_qry_winner_state.state_name#</p>
-                                </div>
-                           </td>
-                            <td width="20px"></td>
-                            <td align="center" width="33%" style="border: 1px dotted ##555555; padding: 20px; margin: 0; height: 100%;">
-                                <div>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:18px;">$50</p>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:18px;">#variables.raffle_winner_after#</p>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:21px;">#variables.winner_after_first# #variables.winner_after_last_full#</p>
-                                    <p style="margin: 0; text-align:center; font-family: sans-serif; font-size:16px;">#qry_qry_after_state.state_name#</p>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+    <cfinclude template="email_msg_winners.cfm">
                 </td>
             </tr>
             <tr>
