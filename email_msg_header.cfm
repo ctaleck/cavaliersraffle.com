@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+    <!doctype html>
     <!-- See https://tedgoas.github.io/Cerberus/ -->
     <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
     <head>
@@ -330,7 +330,7 @@
                 <!-- Email Header : BEGIN -->
                 <tr>
                     <td style="padding: 20px 0; text-align: center">
-                        <img src="https://ourladyofsorrows-academy.com/sites/sspx/files/media/usa-s-phoenix/pub-academy/olosa-email-crest.png" width="140" height="140" alt="OLOSA crest" border="0" style="height: auto; background: #35355A; font-family: sans-serif; font-size: 15px; line-height: 15px; color: 555555;">
+                        <img src="http://ourladyofsorrows-academy.com/sites/sspx/files/media/usa-s-phoenix/pub-academy/olosa-email-crest.png" width="140" height="140" alt="OLOSA crest" border="0" style="height: auto; background: #35355A; font-family: sans-serif; font-size: 15px; line-height: 15px; color: 555555;">
                     </td>
                 </tr>
                 <!-- Email Header : END -->

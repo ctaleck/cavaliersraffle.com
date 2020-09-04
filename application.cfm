@@ -60,3 +60,5 @@ While your user keeps their browser open, session variables will stay alive, but
 <cfset variables.email_address_text = "Our Lady of Sorrows Academy | 750 E. Baseline Road | Phoenix, AZ 85042 | 602-305-7183">
 <cfset variables.email_spam_text = "Please whitelist cavaliersraffle@olosa.org to ensure you receive all emails sent on the first Friday of each month (by end of the day), during your eligibility period. Check your junk or spam folder for the email and mark it as 'not spam' so that you'll receive them in the future.">
 <cfset variables.email_exempt_text = "Our Lady of Sorrows Academy is a K-12 private traditional Catholic school located in Phoenix, Arizona. The Academy is a 501(c)(3) not-for-profit IRS tax exempt entity and donations may be fully tax-deductible according to IRS charitable contributions guidelines. All donations that meet IRS limits will be followed up with a letter of acknowledgement as mandated by the IRS.">
+
+<cfset variables.captcha_key = "stmichaelthearchangel">

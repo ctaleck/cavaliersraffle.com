@@ -1,3 +1,8 @@
+<!--- This code checks to see if the user has gone to http.  If so, redirect to https automatically. --->
+<cfif Compare(cgi.SERVER_PORT,443)>
+	<cflocation url="https://#cgi.server_name##cgi.path_info#?#cgi.query_string#" addtoken="no" />
+</cfif>
+
 <!doctype html>
 <html lang="en">
 
