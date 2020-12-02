@@ -160,6 +160,7 @@
                             <input type="hidden" name="form_referer" value="#cgi.HTTP_REFERER#" />
                         </cfoutput>
                         <cfinput type="submit" name="submit" value="Enroll Now!" validate="SubmitOnce" class="btn btn-lg btn-success text-shadow">
+                        <p class="mt-3 small">Please allow up to three days to get your assigned ticket numbers.</p>
                         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                     </div>
                 </div>

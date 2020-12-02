@@ -99,7 +99,7 @@
     <cfif Len(form.pb_email)>
     	<cfset variables.email = form.pb_email>
     <cfelse>
-    	<cfset variables.email = "NotProvided@piggybackraffle.org">
+    	<cfset variables.email = "<Not provided>">
     </cfif>
     
     <!--- Get the "Current" month and year --->

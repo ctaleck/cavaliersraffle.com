@@ -330,7 +330,7 @@
                 <!-- Email Header : BEGIN -->
                 <tr>
                     <td style="padding: 20px 0; text-align: center">
-                        <img src="http://ourladyofsorrows-academy.com/sites/sspx/files/media/usa-s-phoenix/pub-academy/olosa-email-crest.png" width="140" height="140" alt="OLOSA crest" border="0" style="height: auto; background: #35355A; font-family: sans-serif; font-size: 15px; line-height: 15px; color: 555555;">
+                        <img src="https://ourladyofsorrows-academy.com/sites/sspx/files/media/usa-s-phoenix/pub-academy/olosa-email-crest.png" width="140" height="140" alt="OLOSA crest" border="0" style="height: auto; background: #35355A; font-family: sans-serif; font-size: 15px; line-height: 15px; color: 555555;">
                     </td>
                 </tr>
                 <!-- Email Header : END -->
@@ -338,7 +338,7 @@
                 <!-- Hero Image, Flush : BEGIN -->
                 <tr>
                     <td style="background-color: #ffffff;">
-                        <img src="http://cavaliersraffle.com/images/cavaliers-raffle-email.jpg" width="600" height="" alt="CavaliersRaffle.com logo" border="0" style="width: 100%; max-width: 600px; height: auto; background: dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: 555555; margin: auto; display: block;" class="g-img">
+                        <img src="https://cavaliersraffle.com/images/cavaliers-raffle-email.jpg" width="600" height="" alt="CavaliersRaffle.com logo" border="0" style="width: 100%; max-width: 600px; height: auto; background: dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: 555555; margin: auto; display: block;" class="g-img">
                     </td>
                 </tr>
                 <!-- Hero Image, Flush : END -->

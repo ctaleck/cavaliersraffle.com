@@ -1,17 +1,18 @@
 <cftry>
+
 <!-- https://www.bennadel.com/blog/873-using-captcha-in-coldfusion-8.htm -->
 <!--- Kill extra output. --->
 <cfsilent>
 
     <!--- Param FORM values. --->
     <cfparam
-        name="FORM.referral_name"
+        name="FORM.referral_name1"
         type="string"
         default=""
         />
 
     <cfparam
-        name="FORM.referral_email"
+        name="FORM.referral_email2"
         type="string"
         default=""
         />
@@ -95,6 +96,7 @@
             </cfcatch>
         </cftry>
 
+
     </cfif>
 
 
@@ -162,6 +164,7 @@
 <cfinclude template="header.cfm">
 <cfoutput>
 <form
+name=""
     action="#CGI.script_name#"
     method="post">
 <main>
@@ -194,9 +197,11 @@
                             <hr>
                             <p class="mb-0">You may enter more by using this form again.</p>
                         </div>
-
                     </cfif>
 
+<cfdump var="#FORM#" format="html">
+<cfset referralArray = ListToArray(FORM.referral_emails)>
+<cfdump var="#referralArray#">
                 </cfif>
 
 <!-- Add more form inputs -->
@@ -204,26 +209,30 @@
     <div id="app">
       <div class="card mb-5">
           <div class="card-body">
+
         <h5 class="card-title">Enter your name</h2>
                   <input
+                    type="text"
                     placeholder="your name"
-                    id="sender_name_id"
-                    name="sender_name_name"
+                    id="sender_name"
+                    name="sender_name"
                     v-model="sender_name"
                   />
         <h5 class="card-title">Enter name and email to send to</h2>
             <div class="card-text" v-for="(row, index) in rows">
                 <p>
                   <input
+                    type="text"
                     placeholder="name"
                     v-bind:id="'referral_name'+(index+1)"
                     v-bind:name="'referral_name'+(index+1)"
                     v-model="row.name"
                   />
                   <input
+                    type="text"
                     placeholder="email address"
-                    v-bind:id="'referral_email'+(index+1)"
-                    v-bind:name="'referral_email'+(index+1)"
+                    v-bind:id="'referral_emails'"
+                    v-bind:name="'referral_emails'"
                     v-model="row.email"
                   />
                 </p>
@@ -344,11 +353,20 @@
 <script src="https://unpkg.com/vue"></script>
 
 <script>
+
+<cfscript>
+       example = structnew();
+       example.firstname = "Yes";
+       example.lastname = "Man";
+       stuff = SerializeJSON(example);
+</cfscript>
+
     var app = new Vue({
     el: "#app",
     data: {
         sender_name: '',
-        rows: [{ name: "", email: "" }]
+        rows: [{ name: "", email: "" }],
+        stuff: <cfoutput>#stuff#</cfoutput>
     },
     methods: {
         addRow() {
@@ -358,7 +376,6 @@
     }
     });
 </script>
-
 
     <cfcatch type="any">
         Error: <cfoutput>#cfcatch.message#</cfoutput>
