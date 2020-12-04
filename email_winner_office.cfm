@@ -94,8 +94,8 @@
 <cfset variables.email_preheader_text = "Open to find out about this months's raffle ticket winners.">
 <cfset variables.email_sent_to = "">
 <cfmail
-            to = "cavaliersraffle@olosa.org"
-            bcc = ""
+            to = "treasurer@olosa.org"
+            bcc = "cavaliersraffle@olosa.org"
             from = "cavaliersraffle@olosa.org"
             failto = "cavaliersraffle@olosa.org"
             subject = "CavalierRaffle.com #variables.email_raffle_month_year#"
