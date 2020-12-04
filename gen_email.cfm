@@ -214,10 +214,10 @@
                     </tr>
                     <tr><td>&nbsp;</td></tr>
                     <tr>
-                        <th>Notification to Raffle Coordinator</th>
+                        <th>Notification to Office Treasurer and Raffle Coordinator</th>
                     </tr>
                     <tr>
-                        <td>raffle@olosa.org</td>
+                        <td>treasurer@olosa.org and cavaliersraffle@olosa.org</td>
                     </tr>
                     <tr><td>&nbsp;</td></tr>
                     <tr>
