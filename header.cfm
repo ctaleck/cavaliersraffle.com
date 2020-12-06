@@ -48,7 +48,7 @@
     </script>
 </head>
 
-<body class="bg-light-blue">
+<body class="bg-blue">
 
 <div id="app">
     <header>
@@ -76,14 +76,12 @@
                             <a href="mailto:admin@olosa.org">Webmaster</a>
                         </p>
                     </div>
-                    <div class="col-sm-4 offset-md-1 py-4">
-                        <h4 class="text-white">Contact</h4>
+                    <div class="col-sm-4 offset-md-1 py-4 text-white">
+                        <h4>Contact</h4>
                         <p>750 E. Baseline Road<br/>
                         Phoenix, AZ 85042<br/>
                         602-305-7183</p>
-                        <ul class="list-unstyled">
-                            <li><a href="mailto:office@olosa.org" class="text-white">E-mail: office@olosa.org</a></li>
-                        </ul>
+                        <a href="mailto:CavaliersRaffle.com@olosa.org" class="text-white">E-mail: CavaliersRaffle.com@olosa.org</a>
                     </div>
                 </div>
             </div>
@@ -94,7 +92,7 @@
                     <span class="d-md-none"><strong>OLOSA</strong></span>
                     <span class="d-none d-md-block"><strong>Our Lady of Sorrows Academy</strong></span>
                 </a>
-                <button title="More about donations" class="navbar-toggler" type="button" data-toggle="collapse" onClick="viewMore()"
+                <button title="More about us" class="navbar-toggler" type="button" data-toggle="collapse" onClick="viewMore()"
                     data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="oi oi-question-mark"></span>
                 </button>
