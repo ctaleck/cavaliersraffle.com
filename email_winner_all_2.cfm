@@ -65,7 +65,7 @@
             bcc = "#variables.nonWinningEmailList2#, cavaliersraffle@olosa.org"
             from = "cavaliersraffle@olosa.org"
             failto = "cavaliersraffle@olosa.org"
-            subject = "CavalierRaffle.com #variables.email_raffle_month_year#"
+            subject = "CavaliersRaffle.com #variables.email_raffle_month_year#"
             type="html"
             server = "localhost">
 <cfmailpart type="text" wraptext="74"> 
