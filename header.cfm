@@ -55,14 +55,44 @@
         <div class="collapse" id="navbarHeader">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-8 col-md-7 py-4">
-                        <p class="text-white">Thank you for your donation to</p>
-                        <h4 class="text-white">Our Lady of Sorrows Academy</h4>
+                    <div class="col-sm-8 col-md-7 py-4 text-white">
+                        <h1 class="text-white">Thank you for your donation!</h1>
                         <p class="text-white">
-                            All proceeds from this raffle will benefit the Academy.
+                            Our Lady of Sorrows Academy is pleased you decided to support our school through this unique 
+                            fundraising opportunity. Your ticket purchase entitles you to 12 drawings with the
+                            potential to win every month for a year. We also hope you renew your ticket after the year is up,
+                            to continue the ongoing support of our students, teachers and staff and the multitude of other needs. 
                         </p>
+                        <h2>Frequently Asked Questions (FAQ)</h2>
+                        <h3>Who do the proceeds of the raffle go to?</h3>
                         <p class="text-white">
-                            Thank you for supporting our school!
+                            All proceeds from this raffle will benefit the Our Lady of Sorrows Academy of Phoneix, Arizona.
+                        </p>
+                        <h3>Who is eligible to buy a raffle ticket?</h3>
+                        <p class="text-white">
+                            The ticket holder must be 18 years or older to enter the raffle.
+                        </p>
+                        <h3>Can I purchase tickets for multiple people with one payment?</h3>
+                        <p>
+                            No, at this time you will need to make a separate payment transaction for each ticket holder.
+                        </p>
+                        <h3>If ticket number 1 is drawn, who is the piggyback winner?</h3>
+                        <p>
+                            For the purposes of this raffle, one number higher than the highest number will be the lowest number and one 
+                            number lower than the lowest number will be the highest number. That is, the numbers will roll over the availble enrolled numbers.
+                        </p>
+                        <h3>If I purchase a ticket as a gift, will the receiver know who purchased it?</h3>
+                        <p>
+                            No, the ticket receiver will not be notified who purchased the ticket on their behalf. 
+                            The ticket buyer will need to reveal this information if they desire.
+                        </p>
+                        <h3>Will the sponsored family get notified when I purchase a ticket?</h3>
+                        <p>
+                            No, when using the sponsor field, the sponsored family will not be notified immedialely.
+                        </p>
+                        <h3>Will the sponsored family get notified if I win?</h3>
+                        <p>
+                            No, the sponsored family will not be notified immediately.
                         </p>
                         <p class="text-white small">
                             Our Lady of Sorrows Academy is a K-12 private traditional Catholic school located in
@@ -92,9 +122,9 @@
                     <span class="d-md-none"><strong>OLOSA</strong></span>
                     <span class="d-none d-md-block"><strong>Our Lady of Sorrows Academy</strong></span>
                 </a>
-                <button title="More about us" class="navbar-toggler" type="button" data-toggle="collapse" onClick="viewMore()"
+                <button title="Help" class="navbar-toggler text-white" type="button" data-toggle="collapse" onClick="viewMore()"
                     data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="oi oi-question-mark"></span>
+                    Question <span class="oi oi-question-mark"></span>
                 </button>
             </div>
         </nav>

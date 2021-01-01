@@ -87,23 +87,19 @@
                         <div class="col-md-4 mt-5">
                             <h3>Three Prizes</h3>
                             <p>
-                                $200 prize and two secondary prizes of $50.
+                                $200 grand prize and two piggyback prizes of $50.<sup>*</sup>
                             </p>
                         </div>
                         <div class="col-md-4 mt-5">
                             <h3>Monthly Drawing</h3>
                             <p>
-                                Each month, one number will be randomly selected from all the enrolled numbers to win the $200 monthly prize.  
-                                Additionally, the next higher enrolled number and the next lower enrolled number from the number selected will 
-                                each win secondary prizes of $50.
+                                Numbers will be selected on the first Friday of each month.<sup>*</sup>                               
                             </p>
                         </div>
                         <div class="col-md-4 mt-5">
-                            <h3>Drawing Method</h3>
+                            <h3>Piggyback Raffle</h3>
                             <p>
-                                For the purposes of this raffle, one number higher than the highest number will be the lowest number and one 
-                                number lower than the lowest number will be the highest number.  Numbers will be selected on the first Friday 
-                                of each month.
+                                One number will be randomly selected with the higher and lower number automatically selected.<sup>*</sup>
                             </p>
                         </div>
                     </div>
@@ -111,7 +107,13 @@
         </section>
         <section id="menu" class="bg-light-blue inverse text-blue text-center m-0">
             <div class="container">
-                <p class="text-blue py-5">Administration <a href="admin.cfm">Login</a></p>
+                <p class="text-blue py-5">
+                    <sup>*</sup> For more information, please view the  
+                    <a title="FAQ" href="" data-toggle="collapse" onClick="viewMore()"
+                        data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="FAQ">
+                        FAQ.
+                    </a>
+                </p>
             </div>
         </section>
     </main>
