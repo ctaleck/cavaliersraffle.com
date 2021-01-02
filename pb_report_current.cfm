@@ -92,7 +92,6 @@
                         <tr>
                             <th>&nbsp;</th>
                             <th>&nbsp;</th>
-                            <!--- <th>ID</th> --->
                             <th>
                                 <a href="pb_report_current.cfm?sort_order=name">Name</a>
                                 <cfif variables.sort_display EQ "Ordered By Last Name, First Name"><span class="oi oi-sort-ascending"></span></cfif>
@@ -134,8 +133,11 @@
                                                                     
                                     <td><a href="javascript:rusure('#surl_1#','#confirmation_1#')"><span class="oi oi-trash"></span></a></td>
                                     <td><a href="pb_report_details.cfm?ID=#URLEncodedFormat(selCurrentDonors.ID)#&pb_donation_id=#URLEncodedFormat(selCurrentDonors.pb_donation_id)#&pb_start_date=#URLEncodedFormat(selCurrentDonors.start_date)#"><span class="oi oi-pencil"></span></a></td>
-                                    <!--- <td>#selCurrentDonors.id#</td> --->
-                                    <td>#selCurrentDonors.pb_first_name#&nbsp;#selCurrentDonors.pb_last_name#</td>
+                                    <td>#selCurrentDonors.pb_first_name#&nbsp;#selCurrentDonors.pb_last_name#
+                                    <cfif selCurrentDonors.pb_gift eq "Y">
+                                        🎁
+                                    </cfif>
+                                    </td>
                                         <td>
                                             #selCurrentDonors.pb_address#<br />
                                             <cfif selCurrentDonors.pb_city is "">

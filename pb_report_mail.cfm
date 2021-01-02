@@ -196,7 +196,11 @@
                                         #variables.end_NextDate#
                                     </td>
                                     <td>#selCurrentDonors.pb_first_name#</td>
-                                    <td>#selCurrentDonors.pb_last_name#</td>
+                                    <td>#selCurrentDonors.pb_last_name#
+                                    <cfif selCurrentDonors.pb_gift eq "Y">
+                                        🎁
+                                    </cfif>
+                                    </td>
                                     <td>#selCurrentDonors.pb_email#</td>
                                     <td>#selCurrentDonors.pb_phone#</td>
                                     <td>

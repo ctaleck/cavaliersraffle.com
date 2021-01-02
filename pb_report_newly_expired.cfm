@@ -108,7 +108,11 @@
                     <cfelse>
                         <cfoutput query="selCurrentDonors">
                             <tr>											
-                                <td>#selCurrentDonors.pb_first_name#&nbsp;#selCurrentDonors.pb_last_name#</td>
+                                <td>#selCurrentDonors.pb_first_name#&nbsp;#selCurrentDonors.pb_last_name#
+                                    <cfif selCurrentDonors.pb_gift eq "Y">
+                                        🎁
+                                    </cfif>
+                                </td>
                                     <td>
                                         #selCurrentDonors.pb_address#&nbsp;
                                         <cfif selCurrentDonors.pb_city is "">

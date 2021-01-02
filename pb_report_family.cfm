@@ -33,8 +33,8 @@
 	<cfset variables.sort_display = "Ordered Registration ID">
 </cfif>
     <div class="container-fluid bg-light-blue py-5">
-        <h1>All Entries with Raffle Numbers</h1>
-        <h2>Current Raffle Entries</h2>
+        <h1>Raffle Number Gifts by "Family"</h1>
+        <h2>By Gift Giver (or Ticket Buyer)</h2>
         <cfset variables.today = DateFormat(now(),"yyyy/mm/dd")>
         
         <cfquery name="selCurrentDonors" datasource="#request.datasource#">
@@ -58,10 +58,13 @@
                     convert(varchar(10), c.[pb_start_date], 111) as sort_start_date,
                     convert(varchar(10), c.[pb_end_date], 111) as sort_end_date,
                     convert(varchar(10), c.[pb_start_date], 101) as start_date,
-                    convert(varchar(10), c.[pb_end_date], 101) as end_date
+                    convert(varchar(10), c.[pb_end_date], 101) as end_date,
+                    f.[pb_phx_family_name],
+                    f.[pb_phx_family_email]
                 from #variables.str_donor# as a 
                 inner join #variables.str_donation# as b on a.id = b.id 
                 inner join #variables.str_term# as c on a.id = c.id
+                left join #variables.str_family# as f on b.pb_donation_id = f.pb_donation_id
                 where b.pb_donation_id = c.pb_donation_id                     
                 and convert(varchar(10), c.[pb_end_date], 111) >= <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_varchar">
                 and a.pb_info_source = <cfqueryparam value="#url.family#" cfsqltype="cf_sql_varchar">
@@ -90,16 +93,13 @@
                         <thead>
                             <tr>
                                 <th>&nbsp;</th>
-                                <!--- <th>ID</th> --->
+                                <th>Donation</th>
+                                <th>Ticket Qty</th>
+                                <th>Gifted By</th>
                                 <th>
-                                    <a href="pb_report_family.cfm?sort_order=name&family=#URLEncodedFormat(url.family)#">Name</a>
+                                    <a href="pb_report_family.cfm?sort_order=name&family=#URLEncodedFormat(url.family)#">Ticket Holder</a>
                                     <cfif variables.sort_display EQ "Ordered By Last Name, First Name"><span class="oi oi-sort-ascending"></span></cfif>
                                 </th>
-                                <th>Address</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Ticket Qty</th>
-                                <th>Donation</th>
                                 <th>
                                     <a href="pb_report_family.cfm?sort_order=start_date&family=#URLEncodedFormat(url.family)#">Start Date</a>
                                     <cfif variables.sort_display EQ "Ordered By Eligibility Start Date"><span class="oi oi-sort-ascending"></span></cfif>
@@ -127,26 +127,35 @@
                         <cfif qry_qry_raffle_numbers_exist.RecordCount GT 0>
                             <tr>											
                                 <td><a href="pb_report_details.cfm?ID=#URLEncodedFormat(selCurrentDonors.ID)#&pb_donation_id=#URLEncodedFormat(selCurrentDonors.pb_donation_id)#&pb_start_date=#URLEncodedFormat(selCurrentDonors.start_date)#"><span class="oi oi-pencil"></span></a></td>
-                                <!--- <td>#selCurrentDonors.id#</td> --->
-                                <td>#selCurrentDonors.pb_first_name#&nbsp;#selCurrentDonors.pb_last_name#</td>
-                                    <td>
-                                        #selCurrentDonors.pb_address#<br />
-                                        <cfif selCurrentDonors.pb_city is "">
-                                            &nbsp;
-                                        <cfelse>
-                                            #selCurrentDonors.pb_city#,
-                                        </cfif>
-                                        #selCurrentDonors.pb_state#&nbsp;
-                                        <cfif selCurrentDonors.pb_zipcode is 0>
-                                            &nbsp;
-                                        <cfelse>
-                                            #selCurrentDonors.pb_zipcode#
-                                        </cfif>
-                                    </td>
-                                <td>#selCurrentDonors.pb_email#</td>
-                                <td>#selCurrentDonors.pb_phone#</td>
-                                <td>#selCurrentDonors.pb_ticket_number#</td>
                                 <td>$#selCurrentDonors.pb_donation#</td>
+                                <td>#selCurrentDonors.pb_ticket_number#</td>
+                                <td>
+                                    <cfif selCurrentDonors.pb_gift eq "Y">
+                                         #selCurrentDonors.pb_phx_family_name#<br />
+                                         #selCurrentDonors.pb_phx_family_email#
+                                    <cfelse>
+                                        &nbsp;
+                                    </cfif>
+                                </td>
+                                <td>
+                                    
+                                    #selCurrentDonors.pb_first_name#&nbsp;#selCurrentDonors.pb_last_name#<br />
+                                    #selCurrentDonors.pb_address#<br />
+                                    <cfif selCurrentDonors.pb_city is "">
+                                        &nbsp;
+                                    <cfelse>
+                                        #selCurrentDonors.pb_city#,
+                                    </cfif>
+                                    #selCurrentDonors.pb_state#&nbsp;
+                                    <cfif selCurrentDonors.pb_zipcode is 0>
+                                        &nbsp;
+                                    <cfelse>
+                                        #selCurrentDonors.pb_zipcode#
+                                    </cfif>
+                                    <br />
+                                    #selCurrentDonors.pb_email#<br />
+                                    #selCurrentDonors.pb_phone#
+                                </td>
                                 <td>
                                     #selCurrentDonors.start_date#
                                 </td>
