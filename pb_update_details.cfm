@@ -11,7 +11,7 @@
     <cfset variables.pb_start_date = url.pb_start_date>
 </cfif>
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid bg-light-blue py-5">
         <h1>Entry Details Update</h1>
         <cfset variables.today = DateFormat(now(),"yyyy/mm/dd")>
         

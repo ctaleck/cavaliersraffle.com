@@ -180,7 +180,7 @@
 </cftry>
 
     <cfoutput>
-        <div class="container-fluid py-5">
+        <div class="container-fluid bg-light-blue py-5">
             <h1>Email Generation Report</h1>
             <div class="card card-body">
                 <p>The following emails were generated and sent to the email addresses shown.</p>

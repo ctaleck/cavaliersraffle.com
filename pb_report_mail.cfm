@@ -25,7 +25,7 @@
 	<cfset variables.sort_display = "Ordered Registration ID">
 </cfif>
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid bg-light-blue py-5">
         <h1>Current Email Report</h1>
         <h2>Current Raffle Entries</h2>
         <cfset variables.today = DateFormat(now(),"yyyy/mm/dd")>

@@ -2,9 +2,9 @@
 
 <cfinclude template="tm_sidebar.cfm">
 
-<div class="container-fluid py-5">
+<div class="container-fluid bg-light-blue py-5">
 	<h1>Reports</h1>
-	<div class="list-group">
+	<div class="list-group list-group-horizontal-xl">
 		<a class="list-group-item list-group-item-action" href="pb_report_current.cfm">All Entries with Raffle Numbers</a>
 		<a class="list-group-item list-group-item-action" href="pb_report_new.cfm">Entries Needing Raffle Numbers</a>
 		<a class="list-group-item list-group-item-action" href="pb_report_newly_expired.cfm">Entries Expired in the Last 30 Days</a>

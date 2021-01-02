@@ -14,7 +14,7 @@
 	 where convert(varchar(10), [pb_end_date], 111) < <cfqueryparam value="#variables.today#" cfsqltype="cf_sql_varchar">
 </cfquery>
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid bg-light-blue py-5">
         <h1>All Eligible Raffle Numbers</h1>
         <cfset variables.today = DateFormat(now(),"yyyy/mm/dd")>
         

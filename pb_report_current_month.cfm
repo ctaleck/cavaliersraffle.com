@@ -23,7 +23,7 @@
 	<cfset variables.sort_display = "Ordered Registration ID">
 </cfif>
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid bg-light-blue py-5">
         <h2 class="title">Entries Eligible "Next Month"</strong></h2>
         <div style="clear: both;">&nbsp;</div>
         <div class="entry">

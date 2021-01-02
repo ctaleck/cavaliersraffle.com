@@ -30,7 +30,7 @@
 	<cfset variables.sort_display = "Ordered Registration ID">
 </cfif>
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid bg-light-blue py-5">
         <h1>Entries Expired in the last 30 Days</h1>
         <h2>Current Raffle Entries</h2>
         <cfset variables.today = DateFormat(now(),"yyyy/mm/dd")>

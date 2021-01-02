@@ -35,7 +35,7 @@
     </cfquery>    
 </cfif>
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid bg-light-blue py-5">
         <h1>Registration Details</h1>
         <h2>Donors Currently Eligible for Drawing</h2>
 
@@ -199,12 +199,12 @@
     </div>
         
     <cfif selUsedNumbers.RecordCount GT 0>
-        <div class="container-fluid">
+        <div class="container-fluid bg-light-blue pb-5">
             <cfoutput>
                 <a class="btn btn-success" href="pb_update_details.cfm?ID=#URLEncodedFormat(variables.id)#&pb_donation_id=#URLEncodedFormat(variables.pb_donation_id)#&pb_start_date=#URLEncodedFormat(variables.pb_start_date)#"><span>Update Contact Information</span></a>
             </cfoutput>
         </div>
-        <div class="container-fluid py-5">
+        <div class="container-fluid bg-light-blue py-5">
             <h2>Current Raffle Numbers</h2>
             <div class="card card-body">
                 <table class="table table-sm table-bordered">
@@ -238,7 +238,7 @@
             </div>
         </div>
     <cfelse>
-        <div class="container-fluid py-5">
+        <div class="container-fluid bg-light-blue py-5">
             <cfif selCurrentDonors.pb_payment_verified is "Y">
                 <cfoutput>
                     <a class="btn btn-primary" href="gen_raffle_nbrs.cfm?ID=#URLEncodedFormat(variables.id)#">Generate Raffle Numbers</a>

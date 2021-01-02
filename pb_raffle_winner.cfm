@@ -66,7 +66,7 @@
         </cfif>
         <!--- Random Number output --->
         <!--- <cfoutput>#StructKeyList( objSelections )#</cfoutput> (Look in textbox) --->
-        <div class="container-fluid py-5">
+        <div class="container-fluid bg-light-blue py-5">
             <h1>Winning Raffle Number Entry</h1>
             <div class="card card-body">
                 <cfform name="quote_request" action="pb_raffle_winner.cfm" method="post">
@@ -193,7 +193,7 @@
                         where a.ID in (#variables.winner_list#)
                     order by 1
                 </cfquery> 
-                <div class="container-fluid py-5">
+                <div class="container-fluid bg-light-blue py-5">
                 <h1>Winning Number and Piggybacks</h1>
                 <h2>The Raffle Winners</h2>
                     <cfoutput>

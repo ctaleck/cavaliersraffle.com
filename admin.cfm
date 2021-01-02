@@ -61,7 +61,7 @@
 
 <cfinclude template="header.cfm">
 
-<main class="container-fluid py-5">
+<main class="container-fluid bg-light-blue py-5">
 	<cfform name="logon" action="admin.cfm" method="post">
 		<div class="card card-body w-50 mx-auto">
 			<table align="center" border="0" cellpadding="1" cellspacing="0">

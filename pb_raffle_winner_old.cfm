@@ -41,7 +41,7 @@
 </cfquery>
          
     <cfif NOT IsDefined("form.winning_number")>
-        <div class="container-fluid py-5">
+        <div class="container-fluid bg-light-blue py-5">
             <h1>Winning Raffle Number Entry</h1>
             <div class="card card-body">
                 <cfform name="quote_request" action="pb_raffle_winner_old.cfm" method="post" class="form-inline">
@@ -81,7 +81,7 @@
             <cfset variables.eligible_number_list = ListAppend(variables.eligible_number_list, selUsedNumbers.raffle_nbr,", ")>
         </cfloop>
 
-        <div class="container-fluid py-5">
+        <div class="container-fluid bg-light-blue py-5">
             <h2>Raffle Number Generator</h2>
                 <cfoutput>
                     <div class="card card-body">
@@ -154,7 +154,7 @@
         <!--- End Random Number Generator Code --->
         
     <cfelse>
-        <div class="container-fluid py-5">
+        <div class="container-fluid bg-light-blue py-5">
             <h1>Winning Number and Piggybacks</h1>
             <h2>Enter the Winning Raffle Number Below</h2>
             <cfquery name="qry_qry_number_exists" dbtype="query">
