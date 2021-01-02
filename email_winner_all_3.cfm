@@ -1,5 +1,6 @@
 <!--- Start of email to the non-winners 3 --->
 <cftry>
+<cfset variables.current_email = "email_winner_all_3.cfm">
 
 <cfif isDefined("Url.Test")>
     <cfset variables.raffle_winner_state = "UT">
