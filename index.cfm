@@ -25,7 +25,7 @@
                         <p>
                             Fill out the <b>Raffle Entry</b> form to register and purchase your raffle ticket for up to one year of eligibility.
                         </p>
-                        <a href="#entry" role="button" class="btn btn-warning btn-lg text-danger text-shadow">Raffle Entry</a>
+                        <a href="#entry" role="button" class="btn btn-warning btn-lg text-danger text-shadow">Raffle Entry Ended</a>
                     </div>
                     <div class="col-md-4 mt-5">
                         <h3 class="text-shadow">Monthly Prizes!</h3>
@@ -78,7 +78,7 @@
                 </div>
         </section>        
 
-	<cfinclude template="registration.inc.cfm">
+	<cfinclude template="registration-disabled.inc.cfm">
 
         <section id="rules" class="bg-dark-blue text-white text-center py-5">
             <div class="container">

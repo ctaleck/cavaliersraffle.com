@@ -72,6 +72,7 @@
                             <th>Address</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Sponsor</th>
                             <th>Ticket Qty</th>
                             <th>Donation</th>
                             <th>Start Date</th>
@@ -117,6 +118,7 @@
                                         </td>
                                         <td>#selCurrentDonors.pb_email#</td>
                                         <td>#selCurrentDonors.pb_phone#</td>
+                                        <td>#selCurrentDonors.pb_info_source#</td>
                                         <td>#selCurrentDonors.pb_ticket_number#</td>
                                         <td>$#selCurrentDonors.pb_donation#</td>
                                         <td>
